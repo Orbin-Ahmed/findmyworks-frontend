@@ -1,0 +1,89 @@
+{% load static %}
+<div class="card sponser-card" id="payment-card-style-1" style="display: flex;">
+    <div class="card-body">
+        <h5 class="card-title">Why we need sponsor...?</h5>
+        <hr>
+        <p class="card-text">{{ details.project_sponsorship.sponsor_description }}</p>
+        {#        <ul>#}
+        {#            <li>Consequat semper donec.</li>#}
+        {#            <li>Lorem ipsum dolor sit amew</li>#}
+        {#            <li>Feugiat integer sem fringilla.</li>#}
+        {#            <li>Diam fermentum nulla.</li>#}
+        {#        </ul>#}
+        <p class="bi bi-clock">
+            <span class="text-muted">Fund need within {{ days_remainging }} days</span><br>
+            <span class="text-muted">Estimated:</span>
+            <span class="font-weight-bold">{{ details.project_sponsorship.sponsors_due_date }}</span>
+        </p>
+        <hr>
+        <p style="margin-bottom: 2rem;">
+            <span>Fund: </span><span><b>${% if details.price == null %}0{% else %}
+            {{ details.price }}{% endif %}</b></span>
+            <button class="btn spn-btn" type="button" data-bs-toggle="modal"
+                    data-bs-target="#emailModal"><span class="money-bag"><img alt=""
+                                                                              src="{% static '/image/Group.svg' %}"></span>Sponsor
+            </button>
+        </p>
+        <hr>
+        <p>
+        <div class="row d-flex justify-content-center m-1 pt-3 pb-3"
+             style="background-color: #F8F8F8;border-radius: 0.6rem;">
+
+            <div class="col-md-4" style="padding-right: 0;">
+                <span class="text-danger" style="font-weight: 500;">Warning:</span>
+            </div>
+
+            <div class="col-md-7" style="padding-left: 0;">
+                <span>This project fund is more than $100. Before confirming the sponsorship you have to contact with
+                    findmyworks.com team.</span>
+            </div>
+        </div>
+        {#Modal#}
+        <form method="post">
+            {% csrf_token %}
+            <div class="modal fade" id="emailModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Sponsor email</h5>
+                            <button type="button" class="btn-close my-form-1" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            {#Mail Body#}
+                            <input type="email" name="recipientEmail" class="form-control my-form-1"
+                                   id="recipientEmail" value="{{ details.created_by.email }}" hidden>
+                            <div class="mb-3">
+                                <label for="recipientEmail" class="form-label">Recipient Email address</label>
+                                <input type="email" class="form-control my-form-1" value="{{ email }}" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="senderEmail" class="form-label">Your Email address</label>
+                                <input type="email" name="senderEmail" class="form-control my-form-1" id="senderEmail"
+                                       placeholder="name@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="senderSubject" class="form-label">Subject</label>
+                                <input type="text" name="senderSubject" class="form-control my-form-1"
+                                       id="senderSubject" value="Sponsor Opportunity for {{ details.title }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="senderEmailBody" class="form-label">Email Body</label>
+                                <textarea name="senderEmailBody" class="form-control my-form-1" id="senderEmailBody"
+                                          rows="5">Dear {{ details.created_by.name }}, I'm very impressed with your project which you posted on findmyworks.com website. It seems very interesting to me. I want to reach out to you about sponsorships opportunity in your project.</textarea>
+                            </div>
+                            {#Mail Body#}
+                        </div>
+                        <div class="modal-footer">
+                            {#                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>#}
+                            <button type="submit" class="btn spn-btn">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        {#modal end#}
+
+    </div>
+</div>

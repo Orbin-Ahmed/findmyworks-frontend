@@ -1,0 +1,67 @@
+<div class="card card_item active card-animation-next" id="basic_resume_form" data-step>
+    <h3 class="step-title">Something about yourself</h3>
+
+    <div class="row nMargin">
+        <div class="col-md-12 input-control">
+            <label class="form-label">Your Name</label>
+            <input type="text" class="form-control input" id="name"  placeholder="e.g. MSI Shamim">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 input-control">
+            <label class="form-label">Profession</label>
+            <input type="text" class="form-control input" id="profession" placeholder="e.g. Project Manager">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+        <div class="col-md-6 input-control">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" class="form-control input" id="date_of_birth">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Phone</label>
+            <div class="input-group mb-3 input-control">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">+880
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">+880</a></li>
+                </ul>
+                <input type="text" class="form-control input" id="phone" placeholder=" e.g. +880123456789"
+                       aria-label="Text input with dropdown button">
+                <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6 input-control">
+            <label class="form-label">Email</label>
+            <input type="text" class="form-control input" id="email" placeholder="e.g. user@mail.com">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+    </div>
+
+    <div class="col-md-12 input-control">
+        <label class="form-label">Adress</label>
+        <input type="text" class="form-control input" id="address" placeholder="e.g. Plot #, Road #, Area name">
+        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+    </div>
+
+    <div class="col-md-12 input-control" id="bio-area-container">
+        <label class="form-label">Short Bio</label>
+        <textarea type="text" class="form-control input" style="height: 7rem;" id="bio"
+                  placeholder="Maximum 100 words..."></textarea>
+        <p class="text-muted" id="bio-count-container"><span id="bio-count">0/100</span></p>
+        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+    </div>
+    <div class="data-np-btn">
+        <button type="button" class="next_btn" id="basic_next"
+                onclick="validateInputs();">Next &#8594;
+        </button>
+    </div>
+</div>

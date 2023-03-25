@@ -1,0 +1,390 @@
+html {
+  overflow-y: visible;
+  overflow-x: clip;
+  font-family: 'Poppins';
+}
+
+body {
+  background-color: #F0F2F9;
+}
+
+.step-title {
+  margin: -6rem 0 5rem -24px;
+  font-weight: 800;
+  padding-bottom: 1rem;
+}
+
+.button_reset {
+  all: unset;
+}
+
+.nMargin {
+  margin-top: -2.5rem;
+}
+
+.card_item {
+  border-radius: 2rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 2rem;
+  display: none;
+}
+
+.card_education {
+  border-radius: 2rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 2rem;
+  display: none;
+  animation: resume_fade 500ms ease-in-out both;
+}
+
+.card_education.active {
+  display: block;
+}
+.card_education.hide {
+  display: none;
+}
+
+.card_min_height {
+  min-height: 495px;
+}
+
+.card_item.active {
+  display: block;
+}
+
+.card_item.hide {
+  display: none;
+}
+
+.card-animation-next {
+  animation: resume_fade_bottom 750ms ease-in-out both;
+}
+
+.card-animation-previous {
+  animation: resume_fade_top 750ms ease-in-out both;
+}
+
+/* .resume-card-animation-left {
+  animation: resume_fade_left 800ms 125ms ease-in-out both;
+}
+
+.resume-card-animation-right {
+  animation: resume_fade_right 800ms 125ms ease-in-out both;
+} */
+
+.number {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #FF9344;
+  display: inline-block;
+  font-weight: 400;
+  font-size: 18px;
+  border-radius: 50%;
+  line-height: 25px;
+  transition: 0.2s;
+  background: white;
+  color: #FF9344;
+}
+
+.extra-margin-left {
+  margin-left: 17rem;
+  margin-right: 0.375rem
+}
+
+.extra-margin-right {
+  margin-right: 17rem;
+  margin-left: 0.375rem
+}
+
+.number span {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.resume_pagination {
+  margin: 0 -5rem 0 -3.5rem;
+  position: relative;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #FF9344;
+  display: inline-block;
+  font-weight: 400;
+  font-size: 18px;
+  border-radius: 50%;
+  line-height: 25px;
+  transition: 0.2s;
+  background: white;
+  color: #FF9344;
+}
+
+.resume_pagination span {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.myStep-1 {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #FF9344;
+  display: inline-block;
+  font-weight: 400;
+  font-size: 18px;
+  border-radius: 50%;
+  line-height: 25px;
+  transition: 0.2s;
+  background: linear-gradient(180deg, #FF9344 0%, #FF54D9 100%);
+  color: white;
+}
+
+
+@keyframes resume_fade_right {
+  from {
+    transform: translateX(40%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes resume_fade_left {
+  from {
+    transform: translateX(-20%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes resume_fade_bottom {
+  from {
+    transform: translateY(25%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes resume_fade_top {
+  from {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.multi-step-form {
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+.page_layout {
+  margin-left: 5rem;
+  margin-right: 0rem;
+}
+
+.prev_btn {
+  width: 8rem;
+  margin: auto;
+  background: white;
+  border: #FF9344;
+  color: #FF9344;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.prev_btn:hover {
+  background: linear-gradient(180deg, #FF9344, #FF54D9);
+  color: white;
+}
+
+.resume_prev {
+  margin: 0 0 0 5rem;
+}
+
+.next_btn {
+  width: 6rem;
+  background: white;
+  color: #FF9344;
+  border: 1px solid;
+  border-color: #FF9344;
+  height: 2.5rem;
+  border-radius: 4px;
+  float: right;
+  margin-right: -2rem;
+}
+
+.prvious_btn {
+  width: 7rem;
+  height: 2.5rem;
+  background-color: #F0F2F9;
+  color: #FF9344;
+  background-color: none;
+  border: none;
+  margin-left: -2rem;
+}
+
+.data-np-btn {
+  margin: 3.5rem 0 -3.5rem 0;
+}
+
+.data-np-btn-1 {
+  margin: 3rem 0 -5.5625rem 0;
+}
+
+.submit {
+  width: 5rem;
+  background: white;
+  color: #FF9344;
+  border: 1px solid;
+  border-color: #FF9344;
+  height: 2.5rem;
+  border-radius: 4px;
+  float: right;
+}
+
+.submit:hover {
+  background: linear-gradient(180deg, #FF9344, #FF54D9);
+  color: white;
+}
+
+.add_btn {
+  margin: 0 0 0 -1rem;
+  font-weight: 500;
+}
+
+.add_btn_1 {
+  margin: 6rem 0 -9rem 0;
+  font-weight: 500;
+}
+
+.add_btn_form {
+  margin-bottom: -2.5rem;
+  color: #FF9344;
+}
+
+.next_btn:hover {
+  background: linear-gradient(180deg, #FF9344, #FF54D9);
+  color: white;
+}
+
+.fHeader {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Bootstrap Overide */
+.form-control:focus {
+  border-color: #FF9344;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 147, 68, 0.5);
+}
+
+.form-check-input:focus {
+  border-color: #FF9344;
+  outline: 0;
+  box-shadow: 0 0 0 .25rem rgba(255, 147, 68, .25);
+}
+
+.form-check-input {
+  border: 1px solid rgba(255, 147, 68, 1);
+}
+
+.form-check-input[type=checkbox] {
+  border-radius: 0;
+}
+
+.form-check-input:checked {
+  background-color: #FF9344 !important;
+  border: 0;
+}
+
+.form-check-input:focus,
+.label::after,
+label.form-check-label:focus,
+.form-check-input::after,
+.form-check-input:not(:disabled):not(.disabled):active:focus {
+  border-radius: 0;
+  border: 1px solid rgba(255, 147, 68, 1);
+  color: black;
+  outline: 0;
+  border: 0;
+  box-shadow: 0 0 0 0.1rem #FF9344 !important;
+}
+
+/* Bootstrap Overide */
+
+.add_icon {
+  color: black;
+  font-size: 1.2rem;
+}
+
+.add_icon_form {
+  color: #FF9344;
+  padding-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.skill_add {
+  color: #FF9344;
+  font-size: 1.2rem;
+}
+
+.finalize_css {
+  border: 0;
+  box-shadow: none;
+  padding-right: 0;
+}
+
+.mycard {
+  border-radius: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 1.25rem 1rem 1.25rem 1rem;
+}
+
+.my-card-social {
+  border-radius: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.imageFcss {
+  opacity: 50%;
+  margin-left: 0.6rem;
+}
+
+.img {
+  margin-left: 2.6rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.add-more-social {
+  color: #FF9344;
+  margin-top: 1rem;
+  text-align: end;
+}

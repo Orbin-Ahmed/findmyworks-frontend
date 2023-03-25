@@ -1,0 +1,24 @@
+<table id="uni_table" class="table" style="background-color: #fff;">
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">University name</th>
+        <th scope="col">Graduates</th>
+        <th scope="col">Projects</th>
+        <th scope="col">Publication</th>
+        <th scope="col">Job placement</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for data in uni_rank %}
+        <tr>
+            <th class="table-serial"><span>{{ forloop.counter }}</span></th>
+            <td class="table-body">{{ data.name }}</td>
+            <td>{{ data.total_graduates }}</td>
+            <td>{{ data.total_projects }}</td>
+            <td>{{ data.total_publications }}</td>
+            <td>{{ data.total_job_placement }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

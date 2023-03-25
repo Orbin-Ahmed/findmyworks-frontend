@@ -1,0 +1,295 @@
+html {
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 1550px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    html {
+        font-size: 11px;
+    }
+}
+body {
+    background-color: #F0F2F9;
+}
+
+.filter-location-1 {
+    border-radius: 0;
+}
+
+.input-group-text {
+    background-color: white;
+    border-right: 0;
+}
+
+.my-form {
+    border-left: 0;
+}
+
+.my-form:focus {
+    border-color: #CECED1;
+    box-shadow: none;
+}
+
+.my-form-1:focus {
+    box-shadow: 0 0 0 0.25rem rgb(255 147 68 / 25%);
+    border-color: #FF9344;
+}
+.my-form-2:focus {
+    background-color: #FF9344;
+    box-shadow: 0 0 0 0.25rem rgb(255 147 68 / 25%);
+    border-color: #FF9344;
+}
+.my-form-2:checked {
+    background-color: #FF9344;
+    box-shadow: 0 0 0 0.25rem rgb(255 147 68 / 25%);
+    border-color: #FF9344;
+}
+
+.filter-sub-header {
+    padding: 0.25rem;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.collapsible {
+    font-weight: 600;
+}
+
+.label {
+    font-weight: 300;
+    font-size: 0.75rem;
+    padding: 0;
+}
+
+/***** Ratting Section *****/
+.stars {
+    width: fit-content;
+    cursor: pointer;
+}
+
+.star {
+    color: #ff9344 !important;
+}
+
+.rate {
+    height: 50px;
+    margin-left: -5px;
+    padding: 5px;
+    font-size: 16px;
+    position: relative;
+    cursor: pointer;
+}
+
+.rate input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    pointer-events: none;
+}
+
+.star-over::after {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 16px;
+    content: "\f005";
+    display: inline-block;
+    color: #ff9344;
+    z-index: 1;
+    position: absolute;
+    left: 5px;
+
+}
+
+/*****Ratting End Section *****/
+
+.fund-section-style {
+    margin: 0.5rem;
+    border-top: 1px solid #BEBEBE;
+    padding: 0.5rem 0;
+}
+
+.spn-btn {
+    color: white;
+    background: linear-gradient(98.21deg, #FF9344 0%, #FF54D9 149.94%);
+    border-radius: 0.25rem;
+    float: right;
+}
+
+.spn-btn:hover {
+    color: white;
+}
+
+.money-bag {
+    padding-right: 0.5rem;
+}
+
+/* Details page */
+.project-details-header {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.project-details-category {
+    font-size: .75rem;
+    font-weight: 400;
+}
+
+.project-details-subHeader {
+    font-size: 0.75rem;
+    font-weight: 300;
+}
+.project-details-subHeader-1 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.member-2 {
+    margin-left: -0.7rem;
+}
+
+.member {
+    font-weight: 400;
+}
+
+.love{
+    padding-left:44rem;
+}
+
+/* Bootstrap Class Overide */
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
+    background-color: #000;
+    opacity: 20%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    transition: none;
+}
+
+/* Project sponser card */
+.sponser-card {
+    background: #FFFFFF;
+    box-shadow: 0px 0.25rem 1rem rgba(123, 123, 123, 0.15);
+    border-radius: 1rem;
+}
+
+.border-style {
+    padding: 0.5rem 0 0 0;
+    border: 1px solid rgba(190, 190, 190, 0.5);
+    border-radius: 0.75rem;
+    cursor: pointer;
+}
+
+.payment_btn {
+    background: white;
+    color: #FF9344;
+    border: 1px solid;
+    border-color: #FF9344;
+    border-radius: 4px;
+}
+
+.payment_btn:hover {
+    background: linear-gradient(98.21deg, #FF9344 0%, #FF54D9 149.94%);
+    color: #FFFFFF;
+}
+
+.border-style-1 {
+    border: 1px solid rgba(190, 190, 190, 0.5);
+    border-radius: 4px;
+    padding-top: 0.7rem;
+}
+
+.border-style-2 {
+    border: 1px solid rgba(190, 190, 190, 0.5);
+    border-radius: 4px;
+}
+
+.active-1 {
+    border: 1px solid #FF9344;
+}
+
+.pay_anim {
+    opacity: 0;
+    animation: SlideIn 1s forwards;
+}
+
+@keyframes SlideIn {
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+.time-list {
+    list-style-type: none;
+    margin-top: -0.5rem;
+}
+.time-list li {
+    padding: 0.2rem;
+}
+
+/*Drishty*/
+
+ #des-count.green{
+     color: green;
+ }
+
+  #des-count.red{
+     color: red;
+
+ }
+
+#des-area-container {
+  position: relative;
+}
+
+#des-count-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+}
+
+#des-count-container.text-muted {
+    opacity: 70%;
+    margin: 0;
+    font-size: 12px;
+}
+
+.desMessage {
+  display: none;
+}
+
+#sponsor-Message {
+  color: red;
+  margin-top: 10px;
+}

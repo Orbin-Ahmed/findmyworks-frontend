@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="{% static '/css/quiz.css' %}" rel="stylesheet">
+    <link href="{% static '/css/navBar.css' %}" rel="stylesheet">
+    <title>{{ skill_name }}</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/image/FMW logo.svg' %}">
+    <style>
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(5px);
+            color: white;
+            opacity: 1;
+            transition: 0.5s;
+            visibility: visible;
+        }
+
+        #loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        #number.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        *::selection {
+            background: #ff9344;
+        }
+    </style>
+    <title>FindMyWorks</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>setTimeout(function () {
+        $('#loading').addClass('hidden');
+        $('#number').addClass('hidden');
+
+    }, 4000);</script>
+</head>
+
+<body>
+<div id="loading"></div>
+<div id="number" style="position: fixed;top:400px;left: 760px"></div>
+{% include 'navbar.html' %}
+<div class="container-fluid" style="margin: 0">
+    <div class="row d-flex justify-content-between align-items-center"
+         style="background-color: #fff;margin-bottom: 24px;padding-top: 20px;">
+        <div class="offset-md-1 col-5">
+            <p class="headline">{{ skill_name }} beginner to pro challenge</p>
+            <p class>Time:<b>7 minutes</b></p>
+            <p>Pass mark: <b>80%</b></p>
+        </div>
+        <div class="col-md-3">
+            <div id="dotID" style="display: block;" class="dot"></div>
+            <p id="countdown"><b>Time Starts Now</b></p>
+            <div class="progress" style="margin-bottom: 0.5rem; margin-right:0.9em;height: 3px; width: 20em">
+                <div class="progress-bar" id="progressbar" style="width: 0"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<form method="post" action="/results/{{ skill_id }}/{{ skill_name }}/">
+    {% csrf_token %}
+    <div class="container pb-5">
+        <!--Question -->
+        {% for question in questions %}
+            <div class="row d-flex justify-content-center"
+                 style="background-color: #fff; padding: 40px; border-top-left-radius:1em; border-top-right-radius: 1em;">
+                <div class="col-md-12">
+                    <input name="{{ forloop.counter0 }}" value="{{ question.id }}" type="hidden">
+                    <p><span class="question1">Q-{{ forloop.counter }}.</span>{{ question.title }}</p>
+                </div>
+                <div class="col-md-11">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault{{ forloop.counter0 }}"
+                               value="{{ question.a }}"
+                               id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            <span class="q1">{{ question.a }}</span>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault{{ forloop.counter0 }}"
+                               value="{{ question.b }}"
+                               id="flexRadioDefault1">
+                        <label class="form-check-labe1" for="flexRadioDefault1">
+                            <span class="q1">{{ question.b }}</span>
+                        </label>
+                    </div>
+                    {% if question.c != None %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault{{ forloop.counter0 }}"
+                                   value="{{ question.c }}"
+                                   id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                <span class="q1">{{ question.c }}</span>
+                            </label>
+                        </div>
+                    {% endif %}
+                    {% if question.c != None %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault{{ forloop.counter0 }}"
+                                   value="{{ question.d }}"
+                                   id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                <span class="q1">{{ question.d }}</span>
+                            </label>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+        {% endfor %}
+        <!--Question end -->
+        <div>
+            <a>
+                <button id="quiz_submit_btn" type="button" style="margin-top: -3rem;margin-bottom: -3rem;"
+                        class="btn float-end"
+                        data-bs-toggle="modal"
+                        onclick="quizQuestionsAnswered()" data-bs-target="#quiz-modal">
+                    submit
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <div class="modal fade" id="quiz-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                </div>
+                <div class="modal-body">
+                    <p id="questionSubmission"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a href="/results/{{ skill_id }}/{{ skill_name }}/">
+                        <button type="submit" class="btn btn-primary">Proceed</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script src="{% static '/js/quiz.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

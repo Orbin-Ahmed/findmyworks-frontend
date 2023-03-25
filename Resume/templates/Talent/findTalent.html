@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/navBar.css' %}" media="all">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static '/css/landing.css' %}" media="all">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <link rel="stylesheet" href="{% static '/css/talent.css' %}" media="all">
+    <link rel="stylesheet" href="{% static '/css/animation.css' %}" media="all">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Find Talent</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/image/FMW logo.svg' %}">
+</head>
+<body>
+{% include 'navbar.html' %}
+<div class="container-fluid mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-2" style="margin-bottom: 2rem;">
+            <p class="find-header">Top Talents</p>
+            <p class="filter-by">Filter by</p>
+            <hr>
+            <button type="button" class="collapsible" id="Category_filter_1"
+                    onclick="show_filter('Category_filter_1');">Location<i
+                    class="bi bi-chevron-right nav-icon-margin"></i></button>
+            <br>
+            <input type="text" class="form-control filter-location" id="filter_location" style="display: none;"
+                   placeholder="Dhaka" value="{% if not address == ' ' %}{{ address }}{% else %}{% endif %}">
+            <hr>
+
+            <button type="button" class="collapsible" id="Category_filter"
+                    onclick="show_filter('Category_filter');">Category<i
+                    class="bi bi-chevron-right nav-icon-margin"></i></button>
+            <ul class="filter-content" id="Category_filter_content" style="display: none;">
+                <li class="filter-content-list" id="filter_1" onclick="filter_add(this.id)">Web, Mobile & Software Dev</li>
+                <li class="filter-content-list" id="filter_2" onclick="filter_add(this.id)">Accounting & Consulting</li>
+                <li class="filter-content-list" id="filter_3" onclick="filter_add(this.id)">Admin Support</li>
+                <li class="filter-content-list" id="filter_4" onclick="filter_add(this.id)">Customer Service</li>
+                <li class="filter-content-list" id="filter_5" onclick="filter_add(this.id)">Data Science & Analytics</li>
+                <li class="filter-content-list" id="filter_6" onclick="filter_add(this.id)">Design & Creative</li>
+                <li class="filter-content-list" id="filter_7" onclick="filter_add(this.id)">Engineering & Architecture</li>
+                <li class="filter-content-list" id="filter_8" onclick="filter_add(this.id)">IT & Networking</li>
+                <li class="filter-content-list" id="filter_9" onclick="filter_add(this.id)">Sales & Marketing</li>
+                <li class="filter-content-list" id="filter_10" onclick="filter_add(this.id)">Legal</li>
+                <li class="filter-content-list" id="filter_11" onclick="filter_add(this.id)">Flutter Dev</li>
+            </ul>
+            <br>
+            <button type="button" class="btn hire-btn float-end" style="margin:1rem 1rem 0 0"
+                    onclick="filter_apply();">Apply
+            </button>
+        </div>
+        <!-- User Talent Card  -->
+        <div class="col-md-7 card p-3" style="border-radius: 0.75rem;">
+            <div class="input-group">
+                <input id="talent_prof_search" type="text" class="form-control top-search-form" placeholder="Web designer" value="{% if not search == ' ' %}{{ search }}{% else %}{% endif %}" style="cursor: default;">
+                <button style="z-index: 5" class="btn top-close-icon" type="button" onclick="document.getElementById('talent_prof_search').value = '';"><i class="bi bi-x-circle"></i></button>
+                <button class="btn top-search-icon" type="button" onclick="new_filter();"><i class="bi bi-search"></i></button>
+            </div>
+
+            <!-- Filter -->
+            <ul id="filter-area" class="filter-style"></ul>
+
+
+            <p class="mb-3 clear-filter">
+                <a href="/find-talent/%20/%20/" class="clr-btn-style"
+                   onclick="clear_filter();">clear filter</a>
+            </p>
+            <!-- User Talent Section -->
+            {% for data in talent_info.results %}
+                <div class="row card p-2" style="margin:0 1rem 0 1rem;border-radius: 0;">
+                    <!-- Row 1 -->
+                    <div class="row d-flex justify-content-around align-items-center" style="margin: 0;padding:0;">
+                        <div class="col-md-1"><img src="
+
+
+                                {% if data.user_image %}{{ data.user_image }}{% else %}{% static '/image/imageBox.svg' %}{% endif %}"
+                                                   width="75%"></div>
+                        <div class="col-md-5 user-description">
+                            <p class="user-name">{{ data.first_name }} {{ data.last_name }}</p>
+                            <p class="user-designation">{{ data.profession }}</p>
+                            <p class="user-address">{{ data.address }}</p>
+                        </div>
+                        <div class="col-md-5 hire_button">
+                            <div class="hire-btn-area">
+                                <img src="{% static '/image/heart.svg' %}">
+                                <a href="/hire-talent/{{ data.id }}">
+                                    <button class="btn hire-btn" type="button"><span
+                                            class="job-icon"><i class="bi bi-briefcase"></i></span>Hire
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row 2 -->
+                    <div class="row">
+                        <p class="user-talent-description">{{ data.bio }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            <!-- User Talent Section End -->
+        </div>
+        <!-- User Talent Card End -->
+    </div>
+    {% include 'footer/footer.html' %}
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="{% static '/js/search_filter.js' %}"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1200,
+        easing: 'ease-in-out',
+        offset: 100
+    });
+</script>
+<script>
+    function filter_apply() {
+        let address = document.getElementById('filter_location').value;
+        let search = document.getElementById('filter-area').innerHTML;
+        let temp_1 = search.replace('<li>', '');
+        let temp_2 = temp_1.replace('</li>', '');
+        if ( temp_2 === ''){
+            temp_2 = "%20";
+        }
+        if (address === ''){
+            address = "%20";
+        }
+        let temp = "https://www.findmyworks.com/find-talent/" + temp_2 + "/" + address;
+        location.href = temp
+        console.log(address)
+    }
+
+    function new_filter() {
+        let search_box_value = document.getElementById('talent_prof_search').value;
+        if (search_box_value === ''){
+            search_box_value = '%20'
+        }
+        location.href = "https://www.findmyworks.com/find-talent/" + search_box_value + "/%20/";
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+{% load mathfilters %}
+<div class="row d-flex justify-content-evenly pt-3 mb-5">
+    <p class="talent-profile-header" style="padding-left: 0;"><b>Project history</b></p>
+    {% for data in talent_info.projects %}
+        {% if forloop.counter0|mod:3 == 1 %}
+            <div class="col-lg-3 card card-style" style="margin: 0 0.5rem;">
+                <a style="text-decoration: none;color: inherit;" href="/project-details/{{ data.id }}">
+                    <div class="d-flex justify-content-center"><img style="max-height: 10rem;min-height: 10rem;"
+                                                                    src="{{ data.image.0.image }}"
+                                                                    class="card-img-top" alt="..."></div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ data.title }}</h5>
+                        <p class="card-text">Team members:<img style="margin-left: 0.5rem;"
+                                                               src="{% static '/image/project/member_ 1.svg' %}" alt=""><img
+                                class="member_2"
+                                src="{% static '/image/project/member_ 2.svg' %}" alt=""><img class="member_2"
+                                                                                              src="{% static '/image/project/member_ 3.svg' %}"
+                                                                                              alt=""></p>
+                    </div>
+                    <hr>
+                    <P style="margin: 0.5rem;">
+            <span class="fund-mainHeader"><span class="fund-header">Fund: </span>
+                <b>$<span>{% if data.price == null %}0{% else %}{{ data.price }}{% endif %}</span></b></span>
+                    </P>
+                </a>
+            </div>
+        {% elif forloop.counter0|mod:3 == 0 %}
+            <div class="col-lg-3 card card-style" style="padding: 0;margin: 0 0.5rem;">
+                <a style="text-decoration: none;color: inherit;" href="/project-details/{{ data.id }}">
+                    <div class="d-flex justify-content-center"><img style="max-height: 10rem;min-height: 10rem;"
+                                                                    src="{{ data.image.0.image }}"
+                                                                    class="card-img-top" alt="..."></div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ data.title }}</h5>
+                        <p class="card-text">Team members:<img style="margin-left: 0.5rem;"
+                                                               src="{% static '/image/project/member_ 4.svg' %}" alt=""><img
+                                class="member_2"
+                                src="{% static '/image/project/member_ 5.svg' %}" alt=""><img class="member_2"
+                                                                                              src="{% static '/image/project/member_ 6.svg' %}"
+                                                                                              alt=""></p>
+                    </div>
+                    <hr>
+                    <P style="margin: 0.5rem;">
+            <span class="fund-mainHeader"><span class="fund-header">Fund: </span>
+                <b>$<span>{% if data.price == null %}0{% else %}{{ data.price }}{% endif %}</span></b></span>
+                    </P>
+                </a>
+            </div>
+        {% else %}
+            <div class="col-lg-3 card card-style" style="padding: 0;margin: 0 0.5rem;">
+                <a style="text-decoration: none;color: inherit;" href="/project-details/{{ data.id }}">
+                    <div class="d-flex justify-content-center"><img style="max-height: 10rem;min-height: 10rem;"
+                                                                    src="{{ data.image.0.image }}"
+                                                                    class="card-img-top" alt="..."></div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ data.title }}</h5>
+                        <p class="card-text">Team members:<img style="margin-left: 0.5rem;"
+                                                               src="{% static '/image/project/member_ 7.svg' %}" alt=""><img
+                                class="member_2"
+                                src="{% static '/image/project/member_ 8.svg' %}" alt=""><img class="member_2"
+                                                                                              src="{% static '/image/project/member_ 9.svg' %}"
+                                                                                              alt=""></p>
+                    </div>
+                    <hr>
+                    <P style="margin: 0.5rem;">
+                        <span class="fund-mainHeader">
+                            <span class="fund-header">Fund: </span>
+                            <b>$<span>{% if data.price == null %}0{% else %}{{ data.price }}{% endif %}</span></b>
+                        </span>
+                    </P>
+                </a>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

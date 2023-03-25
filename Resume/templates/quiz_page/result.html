@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    {% load static %}
+    <link href="{% static '/css/quiz.css' %}" rel="stylesheet">
+    <link href="{% static '/css/navBar.css' %}" rel="stylesheet">
+    <title>FindMyWork</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/image/FMW logo.svg' %}">
+    <style>
+        *::selection {
+            background: #ff9344;
+        }
+    </style>
+</head>
+<body>
+{% include 'navbar.html' %}
+<div class="container-fluid" style="margin:0">
+    <div class="row d-flex justify-content-between align-items-center"
+         style="background-color: #fff;margin-bottom: 24px;padding-top: 20px;">
+        <div class="offset-md-1 col-5">
+            <p class="headline">{{ skill_name }} beginner to pro challenge</p>
+            <p class>Time:<b>7 minutes</b></p>
+            <p>Pass mark: <b>80%</b></p>
+            <p>Due: <b>{% if date %}{{ date }} days{% else %} 90 days{% endif %}</b></p>
+        </div>
+        <div class="col-4">
+            <a>
+                {% if date < 1 %}
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Retake
+                        Quiz
+                    </button>
+                {% else %}
+                    <a href="/profile" style="all: unset;cursor: pointer">
+                        <button type="button" class="btn">Return Profile
+                        </button>
+                    </a>
+                {% endif %}
+            </a>
+        </div>
+    </div>
+    <!-- Passed Result part3 -->
+    {% for data in result %}
+        {% if data.status == "Pass" %}
+
+            {#rank start#}
+            <div class="row d-flex justify-content-evenly align-items-center">
+                <div class="col-md-3 ">
+                    <div class="card" style="background-color: white; border-radius: 1rem">
+                        <div class="card-body">
+                            <p class="text-center">Find Your Placement</p>
+                            <table class="table table-responsive table-striped">
+                                <tbody>
+                                {% for data in standing %}
+                                    <tr>
+                                        <th class="table-serial"><span>{{ forloop.counter }}</span></th>
+                                        <td class="text-center"><img class="img-fluid" src="
+
+
+                                                {% if data.user.image %}{{ data.user.image }}{% else %}{% static 'image/imageBox.svg' %}{% endif %}"
+                                                                     width="16px" height="auto" alt="img"></td>
+                                        <td class="rankName">{{ data.user.first_name }} {{ data.user.last_name }}</td>
+                                        <td class="rankName">{{ data.result_percent }}%</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    {# rank end#}
+                </div>
+                <img class=" right-one" src="{% static '/image/quiz/Group.svg' %}" alt="">
+                <div class="col-md-5 text-center">
+                    <div style="background:white;padding: 2rem 2rem; border-radius: 1rem">
+                        <img src="{% static '/image/quiz/pass.svg' %}" alt="">
+                        <p class="text-center text-black"><b>Pass</b></p>
+                        <p class="text-center"><span class="pass-per">{{ data.result_percent }}%</span></p>
+                        <p class="fail">Congratulations! you have passed the quiz test, you can now download the
+                            certificate.</p>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#certificateModal">
+                            Share your certificate
+                        </button>
+                    </div>
+                    <img class=" left-one" src="{% static '/image/quiz/Vector (1).svg' %}" alt="">
+                    <img class=" bottom-one" src="{% static '/image/quiz/Vector (2).svg' %}" alt="">
+                </div>
+            </div>
+            <!-- Failed Result part3 -->
+        {% else %}
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-5 ">
+                    <img src="{% static '/image/quiz/Group 129.svg' %}">
+                </div>
+                <img class=" right-one" src="{% static '/image/quiz/Group.svg' %}">
+                <div class="col-md-5 text-center">
+                    <div style="background:white;padding: 2rem 2rem; border-radius: 1rem">
+                        <img src="{% static '/image/quiz/fail.svg' %}">
+                        <p class="text-center text-black"><b>Fail</b></p>
+                        <p class="text-center"><span class="per">{{ data.result_percent }}%</span></p>
+                        <p class="fail">Sorry! You didn't get the pass mark in the quiz. If you want to retake the quiz
+                            you have to wait next {% if date %}{{ date }} days{% else %} 90 days{% endif %} days.</p>
+                    </div>
+                    <img class=" left-one" src="{% static '/image/quiz/Vector (1).svg' %}" alt="">
+                    <img class=" bottom-one" src="{% static '/image/quiz/Vector (2).svg' %}" alt="">
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{#Share Modal#}
+<div class="modal fade" id="certificateModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Link</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label class="form-label">Link</label>
+                <input type="text" class="form-control input" id="share-link-href"
+                       value="https://findmyworks.com/certificate/ANz7M41veQj_{{ skill_id }}_A70d0vKU3c/{{ User_details.id }}_7Wz08VSZTu/">
+            </div>
+            <div class="modal-footer">
+                <button style="color: #FFFFFF;background: #ff9344" type="button" class="btn"
+                        onclick="copy_to_clipboard();">Copy to clipboard
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{#Share Modal#}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script>
+    function copy_to_clipboard() {
+        // Get the text field
+        var copyText = document.getElementById("share-link-href");
+
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+    }
+</script>
+</body>
+</html>

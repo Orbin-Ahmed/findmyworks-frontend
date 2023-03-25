@@ -1,0 +1,100 @@
+<div class="container-fluid" id="myResume_1">
+    <div class="row d-flex justify-content-center" style="min-height: 495px;">
+        <div class="col-4">
+            <div class="card resume-card-left h-100">
+                {% load static %}
+                <div class="card-body h-100">
+                    <p class="text-field-header" style="margin-bottom: 0.3125rem;margin-top: 2rem;">Skills</p>
+                    <ul class="list-header sub-list" id="skill-area">
+                        <!-- Skill Goes Here -->
+                    </ul>
+                </div>
+                <div class="card-footer m-auto">
+                    <p class="text-field-header text-center">Social media</p>
+                    <p style="margin:0 0 0 1.5rem"><a id="fblinkhere" href="#"><img class="sm-icon"
+                                                                                   src="{% static '/image/Facebook.svg' %}"
+                                                                                   width="25%" height="auto"></a>
+                        <a id="ldlinkhere" href="#"><img class="sm-icon" src="{% static '/image/Linkedin.svg' %}"
+                                                        width="25%" height="auto"></a>
+                        <a id="twlinkhere" href="#"><img class="sm-icon" src="{% static '/image/Twitter.svg' %}"
+                                                        width="25%" height="auto"></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Project Section -->
+        <div class="col-6 right-column">
+            <div class="card resume-card-right h-100" id="flex_div">
+
+                <div class="card-body h-100">
+                    <hr class="horizontal-line">
+                    <h4 class="card-title-right">Work History</h4>
+                    <hr class="horizontal-line">
+                    <p class="bold-sub">
+                        <b class="designation">Designation</b>
+                        <span class="content">( </span>
+                        <span class="content company_start_date" id="preview_company_start_date">Start Date</span>
+                        <span class="content"> - </span>
+                        <span class="content company_end_date" id="jb_end_date">End Date</span>
+                        <span class="content">)</span>
+                    </p>
+                    <p class="content" style="margin-top: -1rem;">
+                        <span class="company">XYZ Ltd</span>,
+                        <span class="city_country">Dhaka</span>
+                    </p>
+                    <ul class="list-header curriculam-list" id="responsibility-area" style="margin-top: -1rem;">
+                        <!-- Responsibility Goes Here -->
+                    </ul>
+
+                    <div id="work_sec_2">
+                    </div>
+                    <ul class="list-header curriculam-list" id="responsibility-area1" style="margin-top: -1rem;">
+                        <!-- Responsibility Goes Here -->
+                    </ul>
+                </div>
+
+                <div class="card-body h-100">
+                    <span>
+                        <hr class="horizontal-line">
+                    </span>
+                    <h4 class="card-title-right">Achievements</h4>
+                    <span>
+                        <hr class="horizontal-line">
+                    </span>
+                    <p class="data-in-project">
+                        <span class="proj-title" style="font-size: 0.8rem;">Achievement Title</span>
+                        <b>
+                            <span class="content"> ( </span>
+                            <span class="content proj-start-date" id="preview-proj-start-date">Start Date</span>
+                            <span class="content"> - </span>
+                            <span class="content project-end-date" id="proj-end-date">End Date</span>
+                            <span class="content"> )</span>
+                        </b>
+                    </p>
+                    <p class="content" style="margin-top:-1rem;">
+                        <span id="proj-link">Link:</span>
+                        <a id="proj-link-here" href=""></a>
+                    </p>
+                    <p class="content proj-description" style="margin-top: -0.25rem;">Project Description here( If any).
+                    </p>
+                    <div id="project-area">
+
+                    </div>
+<!--                    <p class="data-in-project">-->
+<!--                        <span class="publication_title" style="font-size: 0.8rem;">Publication Title</span>-->
+<!--                        <span class="content"> ( </span>-->
+<!--                        <span class=" content publication_year">Year</span>-->
+<!--                        <span class="content"> ) </span><br>-->
+<!--                    </p>-->
+<!--                    <p class="content" style="margin-top:-1rem;">-->
+<!--                        <span>Link:</span>-->
+<!--                        <a class="publication_link" id="publication-link-here" href=""></a>-->
+<!--                    </p>-->
+                </div>
+
+                <!-- Custom Section Goes Here -->
+            </div>
+        </div>
+        <!-- Project Section -->
+    </div>
+</div>

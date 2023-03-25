@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/login_registration.css' %}" media="all">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Confirm</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/image/FMW logo.svg' %}">
+    <style>
+        body {
+            overflow: clip;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container-fluid"
+     style="background: linear-gradient(90.26deg, #FF9344 0%, #FF54D9 120.06%); min-height: 67.5rem;">
+    <div class="row d-flex justify-content-between">
+
+        <!-- Reset Section 1 -->
+        <div class="offset-md-2 col-md-3 signUp_down_animation"
+             style="min-width: 35rem;display: block;padding: 15rem 0 15rem 0;" id="recover_pass_sec1">
+            <div class="card login_card " style="padding:1rem 0 1rem 0">
+                <div class="card-body text-center">
+                    <img src="{% static '/image/recover_icon.svg' %}">
+                    <h1 style="font-size: 2rem;"><b>Confirm Email</b></h1>
+                    <h6 class="card-subtitle text-muted mt-3" style="font-size: 0.8rem;line-height:normal;">Check your email and click on the link to verify your email</h6>
+                    <h6 class="card-subtitle text-muted mt-3" style="font-size: 0.8rem;line-height:normal;">After verify return to <a style="text-decoration: none;color: #ff9344;" href="/signin">login</a></h6>
+                </div>
+            </div>
+        </div>
+        <!-- Orange Image -->
+        <div class="col-md-5">
+            <div class="row">
+                <h1 class="text-center"
+                    style="padding-top:10rem;font-weight: 700;font-size:2.5rem;color:white;font-style:italic;">
+                    <a style="text-decoration: none;color: inherit;" href="/">Findmyworks</a></h1>
+                <img style="position: relative;bottom: -10rem;right: -1rem; z-index: 1;"
+                     src="{% static '/image/golla komola.svg' %}" alt="">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Image -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="offset-md-7 col-md-5" style="position: relative;">
+            <div class="row" id="sign_in_image"><img class="signUp_image_animation"
+                                                     style="position:absolute;bottom: 10rem;right: 0px;z-index: 2;width: 85%;"
+                                                     src="{% static '/image/amico.svg' %}" alt=""></div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="{% static '/js/resetPass.js' %}"></script>
+</body>
+
+</html>

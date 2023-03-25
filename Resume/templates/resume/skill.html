@@ -1,0 +1,111 @@
+<div class="card card_item card-animation-next" id="skill_add_page" data-step>
+    <h3 class="step-title">Skills that describe you the most</h3>
+    <div class="col-md-12 mb-3 nMargin">
+        <label class="form-label">Skill</label>
+        <div class="input-group mb-3 input-control">
+            <input type="text" class="form-control" id="all-skills" placeholder="Enter your custom skill name">
+            <button class="btn" style="border: 1px solid #ced4da;" onclick="skill_add('all-skills', '');" type="button"
+                id="button-addon2_main"><i class="bi bi-plus-lg skill_add"></i></button>
+            <div style="width: 100%;padding-top: 10px;font-size: 14px;}" class="error"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" style="margin-right: -2.5rem;" id="skills1" value="React"
+                    disabled>
+                <button class="btn static_skills " style="border: 0;" onclick="skill_add('skills1', 'button-addon2_sub_0');" type="button"
+                    id="button-addon2_sub_0"><i class="bi bi-plus-lg skill_add"></i></button>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" style="margin-right: -2.5rem;" id="skills2"
+                    value="Project Management" disabled>
+                <button class="btn static_skills" style="border: 0;" onclick="skill_add('skills2', 'button-addon2_sub_1');" type="button"
+                    id="button-addon2_sub_1"><i class="bi bi-plus-lg skill_add"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" style="margin-right: -2.5rem;" id="skills3"
+                    value="Problem Solving" disabled>
+                <button class="btn static_skills" style="border: 0;" onclick="skill_add('skills3', 'button-addon2_sub_2');" type="button"
+                    id="button-addon2_sub_2"><i class="bi bi-plus-lg skill_add"></i></button>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" style="margin-right: -2.5rem;" id="skills4"
+                    value="Machine Learning" disabled>
+                <button class="btn static_skills" style="border: 0;" onclick="skill_add('skills4', 'button-addon2_sub_3');" type="button"
+                    id="button-addon2_sub_3"><i class="bi bi-plus-lg skill_add"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" style="margin-right: -2.5rem;" id="skills5" value="JavaScript"
+                    disabled>
+                <button class="btn static_skills" style="border: 0;" onclick="skill_add('skills5', 'button-addon2_sub_4');" type="button"
+                    id="button-addon2_sub_4"><i class="bi bi-plus-lg skill_add"></i></button>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" style="margin-right: -2.5rem;" id="skills6" value="Flutter"
+                    disabled>
+                <button class="btn static_skills" style="border: 0;" onclick="skill_add('skills6', 'button-addon2_sub_5');" type="button"
+                    id="button-addon2_sub_5"><i class="bi bi-plus-lg skill_add"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" style="margin-right: -2.5rem;" id="skills7" value="UI/UX"
+                    disabled>
+                <button class="btn static_skills" style="border: 0;" onclick="skill_add('skills7', 'button-addon2_sub_6');" type="button"
+                    id="button-addon2_sub_6"><i class="bi bi-plus-lg skill_add"></i></button>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" style="margin-right: -2.5rem;" id="skills8"
+                    value="Critical Thinking" disabled>
+                <button class="btn static_skills" style="border: 0;" onclick="skill_add('skills8', 'button-addon2_sub_7');" type="button"
+                    id="button-addon2_sub_7"><i class="bi bi-plus-lg skill_add"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" style="margin-right: -2.5rem;" id="skills9" value="Programming"
+                    disabled>
+                <button class="btn static_skills" style="border: 0;" onclick="skill_add('skills9', 'button-addon2_sub_8');" type="button"
+                    id="button-addon2_sub_8"><i class="bi bi-plus-lg skill_add"></i></button>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" style="margin-right: -2.5rem;" id="skills0"
+                    value="Customer Support" disabled>
+                <button class="btn static_skills" style="border: 0;" onclick="skill_add('skills0', 'button-addon2_sub_9');" type="button"
+                    id="button-addon2_sub_9"><i class="bi bi-plus-lg skill_add"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="data-np-btn-1">
+        <button type="button" class="prvious_btn" onclick="next_page_1();exp_page_1();page_hide_prev('skill_add_page');prevAnimation('work_history_1');" data-previous>&#8592; Previous</button>
+        <button type="button" class="next_btn" id="skills_next" onclick="validateInputs4()" data-next>Next &#8594;</button>
+    </div>
+</div>

@@ -1,0 +1,144 @@
+{% load static %}
+<!-- Card 1 -->
+<div class="card sponser-card" id="sponsor-card-1" style="display: flex;">
+    <div class="card-body">
+        <h5 class="card-title"><b>{% if details.project_sponsorship.sponsor_description %}View your
+            sponsorship{% else %}Publish for sponsorship{% endif %}</b></h5>
+        <hr>
+        <p class="card-text">
+            {% if details.project_sponsorship.sponsor_description %}
+                {{ details.project_sponsorship.sponsor_description }}{% else %}Project sponsorship is the process of
+                obtaining support, both financial and otherwise, for a project from an individual or
+                organization. You can update your project sponsorship description and required support and timeline
+                here.{% endif %}</p>
+        <p>Sponsorship amount: ${% if details.price %}{{ details.price }}{% else %}0{% endif %}</p>
+        <hr>
+        <p style="margin-bottom: 2rem;">
+            <a onclick="sponsershipsPublish('sponsor-card-1');">
+                <button class="btn spn-btn" type="button">{% if details.project_sponsorship.sponsor_description %}
+                    Update{% else %}Next{% endif %}</button>
+            </a>
+        </p>
+    </div>
+</div>
+
+<!-- Card 2 -->
+<div class="card sponser-card" id="sponsor-card-2" style="display: none;">
+    <div class="card-body">
+        <h5 class="card-title"><b>Publish for sponsorship</b></h5>
+        <hr>
+        <div id="des-area-container">
+            <p class="card-text">Short description</p>
+            <textarea class="form-control my-form-1" id="project_sponsor_description" cols="4" rows="4"
+                      placeholder="Describe why your project need funding"></textarea>
+            <p class="text-muted" id="des-count-container"><span id="des-count">0/50</span></p>
+            <div id="sponsor-Message" class="desMessage "> Maximum 50 words are allowed..</div>
+        </div>
+        <hr>
+        {#        <p class="project-details-subHeader-1">#}
+        {#            Sponsor need#}
+        {#            <span style="float: right;"><i class="bi bi-chevron-down"></i></span>#}
+        {#        </p>#}
+        <label for="project_sponsor_date" class="form-label">Enter Date</label>
+        <input id="project_sponsor_date" class="form-control my-form-1" type="date" value="">
+        {#        <ul class="time-list">#}
+        {#            <li>#}
+        {#                <input class="form-check-input my-form-2" type="checkbox" value="" id="flexCheckChecked">#}
+        {#                <label class="form-check-label">#}
+        {#                    Any time#}
+        {#                </label>#}
+        {#            </li>#}
+        {#            <li>#}
+        {#                <input class="form-check-input my-form-2" type="checkbox" value="" id="flexCheckChecked">#}
+        {#                <label class="form-check-label">#}
+        {#                    Immediately#}
+        {#                </label>#}
+        {#            </li>#}
+        {#            <li>#}
+        {#                <input class="form-check-input my-form-2" type="checkbox" value="" id="flexCheckChecked">#}
+        {#                <label class="form-check-label">#}
+        {#                    In 7 days#}
+        {#                </label>#}
+        {#            </li>#}
+        {#            <li>#}
+        {#                <input class="form-check-input my-form-2" type="checkbox" value="" id="flexCheckChecked">#}
+        {#                <label class="form-check-label">#}
+        {#                    In 15 days#}
+        {#                </label>#}
+        {#            </li>#}
+        {#            <li>#}
+        {#                <input class="form-check-input my-form-2" type="checkbox" value="" id="flexCheckChecked">#}
+        {#                <label class="form-check-label">#}
+        {#                    Within a month#}
+        {#                </label>#}
+        {#            </li>#}
+        {#        </ul>#}
+        <label for="project_sponsor_amount" class="form-label mt-2">Enter your sponsor ship amount</label>
+        <input id="project_sponsor_amount" class="form-control my-form-1" type="text" placeholder="e.g. $200">
+        <div id="errorAmount" style="color: red;"></div>
+        <hr>
+        <p style="margin-bottom: 2rem;">
+            <a onclick="sponsershipsPublish('sponsor-card-2');addProjectsSponser('{{ key }}', '{{ pid }}')">
+                <button class="btn spn-btn" type="button">Publish</button>
+            </a>
+        </p>
+    </div>
+</div>
+
+<!-- Card 3 -->
+
+{% load static %}
+<div class="card sponser-card" id="sponsor-card-3" style="display: none;">
+    <div class="card-body">
+        <h5 class="card-title">Why we need sponsor...?</h5>
+        <hr>
+        <p id="post_project_sponsor_description" class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Ac lacinia placerat ultrices vitae
+            et. Etiam morbi nunc, ornare posuere turpis et.</p>
+        {#        <ul>#}
+        {#            <li>Consequat semper donec.</li>#}
+        {#            <li>Lorem ipsum dolor sit amew</li>#}
+        {#            <li>Feugiat integer sem fringilla.</li>#}
+        {#            <li>Diam fermentum nulla.</li>#}
+        {#        </ul>#}
+        <p class="bi bi-clock">
+            <span class="text-muted">Fund need within <span id="sponsor_due_date">7</span> days</span><br>
+            <span class="text-muted">Estimated:</span>
+            <span id="post_project_sponsor_date" class="font-weight-bold">Nov 1, 2022</span>
+        </p>
+        <hr>
+        <p style="margin-bottom: 2rem;">
+            <span class="text-muted">Requested Fund: </span>
+            <span style="font-size: 1.5rem;font-weight: 600">
+                $<span id="post_project_sponsor_amount">0</span>
+            </span>
+            <a onclick="sponsershipsPublish('sponsor-card-3');">
+                <button class="btn spn-btn" type="button">Edit</button>
+            </a>
+        </p>
+    </div>
+</div>
+
+<div class="card sponser-card" id="sponsor-card-1" style="display: flex;margin-top: 5rem">
+    <div class="card-body">
+        <h5 class="card-title"><b>Daily achievements</b></h5>
+        <hr>
+        {% if achievements %}
+            {% for data in achievements %}
+                <div class="card-text" style="border: 1px solid rgba(190, 190, 190, 0.5);padding: 0.5rem">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <span class="text-muted">16/08/2013</span>
+                            <span class="text-muted">05:49 pm</span>
+                        </div>
+                        <div class="col-md-9">
+                            <p>{{ data.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Your achievements bucket is empty. Hurry up! and add some interesting achievements.</p>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="p-3">
+    <div style="margin-bottom: 2rem" class="">
+        <a data-bs-toggle="modal" data-bs-target="#skillModal" class="add_project_btn" style="margin-top: 0"><i
+                class="bi bi-plus-lg"></i>
+            Add Skill</a>
+    </div>
+    {% for skill_name in resume_skill %}
+        <div class="row d-flex justify-content-between pt-2 pb-2 border-bottom">
+
+            <div class="col-md-4">
+                <p class="form-label skill_label" style="text-transform: capitalize;">{{ skill_name.name }}</p>
+            </div>
+            <div class="col-md-6">
+                <div class="float-end">
+                    {% if skill_name.attend_quiz %}
+                        <a style="all: unset;"
+                           href="/results/{{ skill_name.skill }}/{{ skill_name.name }}/">
+                            <button
+                                    style="all: unset;color: #ff9344;cursor: pointer;">View
+                                result
+                            </button>
+                        </a>
+                    {% else %}
+                        {% if skill_name.question %}
+                            <a style="all: unset;cursor: pointer;" href="/quiz-start/{{ skill_name.skill }}/{{ skill_name.name }}/">
+                                <button type="button"
+                                        class="quiz_btn">Take quiz test
+                                </button>
+                            </a>
+                        {% else %}
+                            <a style="all: unset;" href="/quiz-start/{{ skill_name.skill }}/{{ skill_name.name }}/">
+                                <button type="button"
+                                        class="quiz_btn" disabled>Take quiz test
+                                </button>
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                    <button onclick="deleteSkills('{{ key }}', '{{ skill_name.id }}')"
+                            style="border: none;background: none;color: #FF9344"><i
+                            class="bi bi-trash-fill"></i></button>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

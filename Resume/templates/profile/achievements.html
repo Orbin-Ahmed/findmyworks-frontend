@@ -1,0 +1,205 @@
+{% load mathfilters %}
+<div class="row d-flex justify-content-between">
+    <p style="padding: 1rem 1.8rem 0 1.8rem;margin-bottom: 1.5rem;">
+        <a data-bs-toggle="modal" data-bs-target="#achievementsModal" class="add_project_btn"><i
+                class="bi bi-plus-lg"></i>
+            Add more Achievements</a>
+    </p>
+    {% for information in resume_project_info %}
+        <!-- Left Column -->
+        {% if forloop.counter0|mod:3 == 1 %}
+            <div class="card col-md-6"
+                 style="border-top-right-radius: 0;border-bottom-right-radius:0;border-bottom-left-radius:0;">
+                <div class="row d-flex justify-content-between edu_plr">
+                    <div class="col-md-8"><span class="card-sec-title">Achievements {{ forloop.counter }}</span></div>
+                    <div class="col-md-3">
+                    <span style="color: #ff9344;float: right;">
+                        <button onclick="delete_achievements('{{ key }}', '{{ information.id }}')"
+                                style="border: none;background: none;color: red"><i
+                                class="bi bi-trash-fill"></i></button>
+                    </span>
+                        <span style="color: #ff9344;float: right;"><button
+                                onclick="return achievements_profile_validation('{{ key }}', '{{ information.id }}');"
+                                style="border: none;background: none;color: #ff9344">Save</button>
+                    </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="title{{ information.id }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title{{ information.id }}"
+                                   name="title{{ information.id }}"
+                                   value="{{ information.title }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="link{{ information.id }}" class="form-label">Github/Repo Link</label>
+                            <input type="text" class="form-control" id="link{{ information.id }}"
+                                   name="link{{ information.id }}"
+                                   value="{{ information.links.0 }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="start_date{{ information.id }}" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="project_start_date{{ information.id }}"
+                                   name="start_date{{ information.id }}"
+                                   value="{{ information.start_date }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="end_date{{ information.id }}" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="project_end_date{{ information.id }}"
+                                   name="end_date{{ information.id }}"
+                                   value="{{ information.end_date }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 p-2 input-control" id="info-area-container">
+                            <label for="description{{ information.id }}" class="form-label">Description</label>
+                            <textarea type="text" class="form-control info-description"
+                                      id="description{{ information.id }}" rows="3"
+                                      name="description{{ information.id }}"
+                                      value="{{ information.description }}">{{ information.description }}</textarea>
+                            <p class="text-muted" id="info-count-container"><span id="info-count">0/100</span></p>
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <!-- Full Column -->
+        {% if forloop.counter0|mod:3 == 0 %}
+            <div class="card col-md-12" style="border-top-left-radius: 0;border-top-right-radius:0;">
+                <div class="row d-flex justify-content-between edu_plr">
+                    <div class="col-md-8"><span class="card-sec-title">Achievements {{ forloop.counter }}</span></div>
+                    <div class="col-md-3">
+                    <span style="color: #ff9344;float: right;">
+                        <button onclick="delete_achievements('{{ key }}', '{{ information.id }}')"
+                                style="border: none;background: none;color: orange"><i
+                                class="bi bi-trash-fill"></i></button>
+                    </span>
+                        <span style="color: #ff9344;float: right;">
+                        <button onclick="return achievements_profile_validation('{{ key }}', '{{ information.id }}');"
+                                style="border: none;background: none;color: #ff9344">Save</button>
+                    </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="title{{ information.id }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title{{ information.id }}"
+                                   name="title{{ information.id }}"
+                                   value="{{ information.title }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="link{{ information.id }}" class="form-label">Github/Repo Link</label>
+                            <input type="text" class="form-control" id="link{{ information.id }}"
+                                   name="link{{ information.id }}"
+                                   value="{{ information.links.0 }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="start_date{{ information.id }}" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="project_start_date{{ information.id }}"
+                                   name="start_date{{ information.id }}"
+                                   value="{{ information.start_date }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="end_date{{ information.id }}" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="project_end_date{{ information.id }}"
+                                   name="end_date{{ information.id }}"
+                                   value="{{ information.end_date }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 p-2 input-control" id="full-area-container">
+                            <label for="description{{ information.id }}" class="form-label">Description</label>
+                            <textarea type="text" class="form-control info-description"
+                                      id="description{{ information.id }}" rows="3"
+                                      name="description{{ information.id }}"
+                                      value="{{ information.description }}">{{ information.description }}</textarea>
+                            <p class="text-muted" id="full-count-container"><span id="full-count">0/100</span></p>
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% if forloop.counter0|mod:3 == 2 %}
+            <!-- Right Column -->
+            <div class="card col-md-6"
+                 style="border-top-right-radius: 0;border-bottom-right-radius:0;border-bottom-left-radius:0;">
+                <div class="row d-flex justify-content-between edu_plr">
+                    <div class="col-md-8"><span class="card-sec-title">Achievements {{ forloop.counter }}</span></div>
+                    <div class="col-md-3">
+                    <span style="color: #ff9344;float: right;">
+                        <button onclick="delete_achievements('{{ key }}', '{{ information.id }}')"
+                                style="border: none;background: none;color: red"><i
+                                class="bi bi-trash-fill"></i></button>
+                    </span>
+                        <span style="color: #ff9344;float: right;">
+                        <button onclick="return achievements_profile_validation('{{ key }}', '{{ information.id }}');"
+                                style="border: none;background: none;color: #ff9344">Save</button>
+                    </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="title{{ information.id }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title{{ information.id }}"
+                                   name="title{{ information.id }}"
+                                   value="{{ information.title }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="link{{ information.id }}" class="form-label">Github/Repo Link</label>
+                            <input type="text" class="form-control" id="link{{ information.id }}"
+                                   name="link{{ information.id }}"
+                                   value="{{ information.links.0 }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="start_date{{ information.id }}" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="project_start_date{{ information.id }}"
+                                   name="start_date{{ information.id }}"
+                                   value="{{ information.start_date }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="end_date{{ information.id }}" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="project_end_date{{ information.id }}"
+                                   name="end_date{{ information.id }}"
+                                   value="{{ information.end_date }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 p-2 input-control" id="right-area-container">
+                            <label for="description{{ information.id }}" class="form-label">Description</label>
+                            <textarea type="text" class="form-control info-description"
+                                      id="description{{ information.id }}" rows="3"
+                                      name="description{{ information.id }}"
+                                      value="{{ information.description }}">{{ information.description }}</textarea>
+                            <p class="text-muted" id="right-count-container"><span id="right-count">0/100</span></p>
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{#    <button type="submit" style="margin: 1rem;" class="btn quiz_btn float-end" >Submit</button>#}

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/navBar.css' %}" media="all">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="{% static '/css/profile.css' %}" media="all">
+    <link rel="stylesheet" href="{% static '/css/add_project.css' %}" media="all">
+    <title>New Project</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/image/FMW logo.svg' %}">
+    <style>
+        *::selection {
+            background: #ff9344;
+        }
+    </style>
+</head>
+
+<body>
+{% include 'navbar.html' %}
+<form method="post" action="/add-project/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row d-flex justify-content-center pt-4">
+
+        <div class="col-md-9 add_project_card">
+
+            <div class="row d-flex justify-content-evenly">
+                <div class="col-md-6">
+                    <p class="add_project_header">Add your project</p>
+                </div>
+                <div class="col-md-6 m-auto">
+                    <button class="btn quiz_btn" style="float: right;" type="submit">Submit</button>
+                </div>
+            </div>
+            <hr>
+            <div class="row d-flex justify-content-between">
+                <div class="col-md-6" style="border-right: 1px solid rgba(190, 190, 190, 0.5);">
+                    <!-- File Upload Area -->
+                    {% include 'profile/project_image.html' %}
+                    <!-- File Upload Area -->
+                </div>
+                <div class="col-md-6 ps-5 pt-3">
+                    <label class="form-label proj-title">Project title</label>
+                <div id="text-area-container">
+                    <textarea name="project_title" id="titleField" class="form-control mb-3" cols="70" rows="3"
+                              placeholder="e.g. Unique Modern Professional Responsive Website UI/UX design"></textarea>
+                                <p class="text-muted" id="word-count-container"><span id="word-count">0/7</span></p>
+                </div>
+                    <p class="error" id="errorMessage1"></p>
+                    <div class="row d-flex justify-content-between mb-3">
+                        <label for="project_participants" class="form-label proj-title">Add participants</label>
+                        <div class="col-md-12">
+                            <input name="project_participants" id="project_participants" class="form-control"
+                                   list="userList"
+                                   placeholder="Participants username/email">
+                            <datalist id="userList">
+                                {% for info in usersdata %}
+                                    <option value="{{ info.email }}">{{ info.email }}</option>
+                                {% endfor %}
+                            </datalist>
+                        </div>
+{#                        <div class="col-md-2 m-auto">#}
+{#                            <button type="button" class="invite_btn">Invite</button>#}
+{#                        </div>#}
+                    </div>
+                    <label class="form-label proj-title">Category</label>
+                    <input name="project_category" id="project_category" class="form-control mb-3"
+                           placeholder="e.g. Flutter" required>
+                <div id="text-area-container1">
+                    <label class="form-label proj-title">Project description</label>
+                    <textarea name="project_description" id="inputField" class="form-control mb-3" cols="70" rows="4"
+                              placeholder="e.g. Unique Modern Professional Responsive Website UI/UX design"></textarea>
+                    <p class="text-muted" id="word-count-container1"><span id="word-count1">0/200</span></p>
+                </div>
+                    <p class="error" id="errorMessage2"></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script class="jsbin" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="{% static '/js/add_project.js' %}"></script>
+</body>
+
+</html>

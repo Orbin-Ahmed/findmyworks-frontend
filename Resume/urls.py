@@ -1,0 +1,35 @@
+from django.urls import path
+from django.urls import re_path
+from . import views
+
+urlpatterns = [
+    path('', views.home),
+    path('signin/', views.signin),
+    path('signup/', views.signup),
+    path('resume-builder/', views.resume_build),
+    path('profile/', views.profile_view),
+    path('profile-info/', views.profile_info),
+    path('reset-pass/', views.resetPass),
+    path('auth/password/reset/confirm/<uid>/<token>/', views.retypepass),
+    path('find-talent/<search>/<address>/', views.find_Talent),
+    path('hire-talent/<UID>/', views.hire_Talent),
+    path('find-project/<search>/<fund_1>/<fund_2>/<date_1>/<date_2>/<catagory>/', views.find_Project),
+    path('project-details/<pid>', views.project_details),
+    path('add-project/', views.add_project),
+    path('profile/view/<pid>', views.project_view),
+    path('ranking/', views.ranking),
+    path('logout/', views.logout),
+    path('quiz-start/<skill_id>/<name>/', views.quiz_start),
+    path('questions/<skill_id>/<name>/', views.quiz_questions),
+    path('results/<skill_id>/<name>/', views.quiz_result),
+    path('terms-service/', views.terms),
+    path('privacy-policy/', views.privacy),
+    path('cookies/', views.cookies),
+    path('achievments/<pid>', views.achievments),
+    path('verify-email/<vid>/', views.confirm_email),
+    path('add_work/', views.add_work),
+    path('add_achievements/', views.add_achievements),
+    path('share-resume/<user_name>/<user_id>/', views.share_resume),
+    path('auth/google/', views.googleAuth),
+    path('certificate/<skill>/<uid>/', views.certificate),
+]

@@ -1,0 +1,217 @@
+<div class="container-fluid pt-3" id="myResume_0"
+     style="background-color: #F0F2F9;border-bottom-left-radius: 0.25rem;border-bottom-right-radius: 0.25rem;">
+    <div class="row d-flex justify-content-end text-center">
+        <div class="col-md-2" style="margin-right: 1.5rem">
+            <button onclick="PrintElem('resume_print_area1','resume_print_area2')" class="btn mb-2 download-share-btn float-end m-1">
+                <i class="bi bi-printer"></i>
+            </button>
+            <button data-bs-toggle="modal" data-bs-target="#ShareModal" class="btn mb-2 download-share-btn float-end m-1">
+                <i class="bi bi-share-fill"></i>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div id="resume_print_area1">
+                <div class="row d-flex justify-content-evenly" style="min-height: 495px;">
+                    <div class="col-5">
+                        <div class="card resume-card-left h-100">
+                            {% load static %}
+                            <img id="imageField-1" src="{% if resume_related_info.image %}{{ resume_related_info.image }}{% else %}{% static 'image/imageBox.svg' %}{% endif %}"
+                                 class="card-img-top" alt="Your Image" style="max-height: 12rem;min-height: 10rem;">
+                            <div class="card-body profile-card-body" style="margin-bottom: -0.5rem;">
+                                <h4 class="card-title name">{{ User_details.first_name }} {{ User_details.last_name }}</h4>
+                                <p class="text-field-profession profession">{{ User_details.profession }}</p>
+                                <p class="text-field-header date">Birth date: <span
+                                        class="text-field date_of_birth">{{ User_details.date_of_birth }}</span></p>
+                                <p class="text-field-header">Number: <span
+                                        class="text-field phone"><span>+880</span>{{ User_details.phone_number }}</span>
+                                </p>
+                                <p class="text-field-header">Email: <span
+                                        class="text-field email">{{ User_details.email }}</span>
+                                </p>
+                                <p class="text-field-header">Address: <span
+                                        class="text-field address">{{ User_details.address }}</span></p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-6 right-column">
+                        <div class="card resume-card-right h-100">
+                            <div class="card-body profile-card-body h-100">
+                                <p class="card-title-right">About me</p>
+                                <p class="content bio">{{ resume_basic.bio }}</p>
+                            </div>
+                            {#1st Education Goes Here#}
+                            <div class="card-body profile-card-body h-100">
+                                <hr class="horizontal-line">
+                                <h4 class="card-title-right">Education</h4>
+                                <hr class="horizontal-line">
+                                {% for data in resume_education %}
+                                    <p class="bold-sub myMargin" style="margin-bottom: 0.5rem;">
+                                        <b>
+                                            <span id="degree">{{ data.concentration }}</span>
+                                            <span> : </span>
+                                            <span class="major">{{ data.major }}</span>
+                                            <span class="content"> ( </span>
+                                            <span class="content study_start_date">{{ data.start_date }}</span>
+                                            <span class="content"> - </span>
+                                            <span class="content study_end_date"
+                                                  id="st_end_date">{% if data.end_date == None %}Present{% else %}
+                                                {{ data.end_date }}{% endif %}</span>
+                                            <span class="content"> )</span>
+                                        </b>
+                                    </p>
+                                    <p class="content myMargin">
+                                        <span>Result: </span>
+                                        <span class="result">{{ data.result }}</span>
+                                    </p>
+                                    <p class="content myMargin Institute_name">{{ data.institute.name }}</p>
+                                    <p class="content myMargin Institute_Address">{{ data.address }}</p>
+                                    <ul class="list-header curriculam-list mt-2" id="curriculam-area">
+                                        {% for activity in data.extra_activities %}
+                                            <li>{{ activity }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endfor %}
+                            </div>
+                            {#First Education End#}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <h5 class="text-center" style="border-bottom-left-radius: 0.25rem;">First Page</h5>
+        </div>
+        <div class="col-md-6">
+            <div id="resume_print_area2">
+                <div class="row d-flex justify-content-evenly" style="min-height: 495px;">
+                    <div class="col-5">
+                        <div class="card resume-card-left h-100">
+                            {% load static %}
+                            <div class="card-body profile-card-body h-100">
+                                <p class="text-field-header">Skills</p>
+                                <ul class="list-header sub-list" id="skill-area">
+                                    <!-- Skill Goes Here -->
+                                    {% for data in resume_skill %}
+                                        <li style="text-transform: capitalize;">{{ data.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <!-- Custom Section Goes Here -->
+                            {% for data in resume_other_info.other_skills %}
+                                <div class="card-body profile-card-body h-100" style="padding-bottom: 0">
+                                <span>
+                                    <hr class="horizontal-line">
+                                </span>
+                                    <h4 class="card-title-right text-white">{{ data.name }}</h4>
+                                    <span>
+                                    <hr class="horizontal-line">
+                                </span>
+                                    {% for value in data.values %}
+                                        <p class="content proj-description"
+                                           style="margin-top: -0.25rem;color: #FFFFFF;opacity: 100%;">{{ value }}
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                            <!--                            Custom section end-->
+                            <div class="card-footer m-auto">
+                                <p class="text-field-header text-center">Social media</p>
+                                <p style="margin:0 0 0 1.5rem"><a id="fblinkhere"
+                                                                  href="{{ resume_related_info.social_links.0.twitter }}"><img
+                                        class="sm-icon"
+                                        src="{% static '/image/Facebook.svg' %}"
+                                        width="25%"
+                                        height="auto"></a>
+                                    <a id="ldlinkhere" href="{{ resume_related_info.social_links.0.facebook }}"><img
+                                            class="sm-icon"
+                                            src="{% static '/image/Linkedin.svg' %}"
+                                            width="25%" height="auto"></a>
+                                    <a id="twlinkhere" href="{{ resume_related_info.social_links.0.linkedin }}"><img
+                                            class="sm-icon"
+                                            src="{% static '/image/Twitter.svg' %}"
+                                            width="25%" height="auto"></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Section -->
+                    <div class="col-6 right-column">
+                        <div class="card resume-card-right h-100" id="flex_div">
+
+                            <div class="card-body profile-card-body h-100">
+                                <hr class="horizontal-line">
+                                <h4 class="card-title-right">Work History</h4>
+                                <hr class="horizontal-line">
+                                {% for data in resume_work_info %}
+                                    <p class="bold-sub">
+                                        <b class="designation">{{ data.designation }}</b>
+                                        <span class="content">( </span>
+                                        <span class="content company_start_date">{{ data.start_date }}</span>
+                                        <span class="content"> - </span>
+                                        <span class="content company_end_date"
+                                              id="jb_end_date">{% if data.end_date == None %}Present{% else %}
+                                            {{ data.end_date }}{% endif %}</span>
+                                        <span class="content">)</span>
+                                    </p>
+                                    <p class="content" style="margin-top: -1rem;">
+                                        <span class="company">{{ data.name }}</span>,
+                                        <span class="city_country">{{ data.city }} {{ data.country }}</span>
+                                    </p>
+                                    <ul class="list-header curriculam-list" id="responsibility-area"
+                                        style="margin-top: -0.5rem;">
+                                        {% for responsibility in data.responsibility %}
+                                            <li>{{ responsibility }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endfor %}
+                            </div>
+
+                            <div class="card-body profile-card-body h-100">
+                            <span>
+                                <hr class="horizontal-line">
+                            </span>
+                                <h4 class="card-title-right">Achievements</h4>
+                                <span>
+                                <hr class="horizontal-line">
+                            </span>
+                                {% for data in resume_project_info %}
+                                    <p class="data-in-project">
+                                        <span class="proj-title" style="font-size: 0.8rem;">{{ data.title }}</span>
+                                        <b>
+                                            <span class="content"> ( </span>
+                                            <span class="content proj-start-date">{{ data.start_date }}</span>
+                                            <span class="content"> - </span>
+                                            <span class="content project-end-date"
+                                                  id="proj-end-date">{% if data.end_date == None %}Present{% else %}
+                                                {{ data.end_date }}{% endif %}</span>
+                                            <span class="content"> )</span>
+                                        </b>
+                                    </p>
+                                    <p class="content" style="margin-top:-1rem;">
+                                        <span id="proj-link">Link:</span>
+                                        <a id="proj-link-here" href="">{{ data.links.0 }}</a>
+                                    </p>
+                                    <p class="content proj-description"
+                                       style="margin-top: -0.25rem;">{{ data.description }}</p>
+                                {% endfor %}
+                                <div id="project-area">
+
+                                </div>
+                            </div>
+                            <!--                            Project page end-->
+
+
+                        </div>
+                    </div>
+                    <!-- Project Section -->
+                </div>
+            </div>
+            <br>
+            <h5 class="text-center" style="border-bottom-right-radius: 0.25rem;">Second Page</h5>
+        </div>
+    </div>
+</div>

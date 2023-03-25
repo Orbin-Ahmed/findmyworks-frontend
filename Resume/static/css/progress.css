@@ -1,0 +1,211 @@
+.progress-bar1 {
+    width: 13rem;
+    min-height: 50%;
+    padding: 0 20px 0 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #F0F2F9 !important;
+
+}
+
+.step {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+.step-container {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.step p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #868686;
+    opacity: 75%;
+    margin-bottom: 8px;
+    transition: 0.2s;
+}
+
+.bullet {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #FF9344;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 18px;
+    border-radius: 50%;
+    line-height: 25px;
+    transition: 0.2s;
+    background: white;
+}
+
+.step span {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bullet.current_step {
+    border: 1px solid #FF9344;
+    background: linear-gradient(180deg, #FF9344 0%, #FF54D9 100%);
+    color: white;
+}
+
+.step_color {
+    color: #FF9344;
+}
+
+.step_color_1 {
+    border: 1px solid #FF9344;
+    background: linear-gradient(180deg, #FF9344 0%, #FF54D9 100%);
+    color: white;
+}
+
+.step .check {
+    display: none;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 15px;
+
+}
+
+.bullet:after {
+    position: absolute;
+    content: "";
+    height: 54px;
+    width: 1px;
+    opacity: 10%;
+    background: #000;
+    bottom: -54px;
+    right: 13px;
+}
+
+.bullet:before {
+    position: absolute;
+    content: "";
+    height: 0px;
+    width: 1px;
+    opacity: 10%;
+    background: #000;
+    bottom: -54px;
+    right: 13px;
+}
+
+.bullet.active::before {
+    background-color: #2EC659;
+    opacity: 100%;
+}
+
+
+.bullet.active:after {
+    background-color: #FF9344;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.bullet.active {
+    transition: background-color 2s;
+    border: 1px solid #2EC659;
+    background: #2EC659;
+}
+
+.step:last-child .bullet:before,
+.step:last-child .bullet:after {
+    display: none;
+
+}
+
+.bullet.active span {
+    display: none;
+}
+
+.check.active {
+    display: block;
+    color: white;
+}
+
+.step p.active {
+    color: #1A1A40;
+    opacity: 100%;
+}
+
+
+/* Top View Progress Bar */
+
+.progressbar-1 {
+    counter-reset: step;
+}
+
+.progressbar-1 li {
+    list-style: none;
+    display: inline-block;
+    width: 13%;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    color: #707070;
+}
+
+.progressbar-1 li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #FF9344;
+    border-radius: 50%;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    background-color: #fff;
+    color: #FF9344;
+}
+
+.progressbar-1 li:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
+}
+
+.progressbar-1 li:first-child:after {
+    content: none;
+}
+
+.progressbar-1 li.active-1 {
+    color: #000;
+}
+
+.progressbar-1 li.active-1:before {
+    border-color: #FF9344;
+    background: linear-gradient(180deg, #FF9344 0%, #FF54D9 100%);
+    color: white;
+}
+
+.progressbar-1 li.active-1+li:after {
+    background-color: #FF9344;
+}
+
+.progressbar-1 li.prev:before {
+    content: '\2713';
+    color: #fff;
+    border: 1px solid #2EC659;
+    background: #2EC659;
+}

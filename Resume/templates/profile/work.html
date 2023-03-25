@@ -1,0 +1,220 @@
+{% load mathfilters %}
+<div class="row d-flex justify-content-between">
+    <p style="padding: 1rem 1.8rem 0 1.8rem;margin-bottom: 1.5rem;">
+        <a data-bs-toggle="modal" data-bs-target="#workModal" class="add_project_btn"><i class="bi bi-plus-lg"></i>
+            Add more Work Experience</a>
+    </p>
+    {% for information in resume_work_info %}
+        <!-- Left Column -->
+        {% if forloop.counter0|mod:3 == 1 %}
+            <div class="card col-md-6"
+                 style="border-top-right-radius: 0;border-bottom-right-radius:0;border-bottom-left-radius:0;">
+                <div class="row d-flex justify-content-between edu_plr">
+                    <div class="col-md-8"><span class="card-sec-title">Company {{ forloop.counter }}</span></div>
+                    <div class="col-md-3">
+                    <span style="color: #ff9344;float: right;">
+                        <button onclick="delete_workinfo('{{ key }}', '{{ information.id }}')"
+                                style="border: none;background: none;color: red"><i
+                                class="bi bi-trash-fill"></i></button>
+                    </span>
+                        <span style="color: #ff9344;float: right;"><button onclick="return work_profile_validation('{{ key }}', '{{ information.id }}');"
+                                style="border: none;background: none;color: #ff9344">Save</button>
+                    </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="company_name{{ information.id }}" class="form-label">Company name</label>
+                            <input type="text" class="form-control" id="company_name{{ information.id }}"
+                                   name="company_name{{ information.id }}"
+                                   value="{{ information.name }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="designation{{ information.id }}" class="form-label">Designation/Position</label>
+                            <input type="text" class="form-control" id="designation{{ information.id }}"
+                                   name="designation{{ information.id }}"
+                                   value="{{ information.designation }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="start_date{{ information.id }}" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="start_date{{ information.id }}"
+                                   name="start_date{{ information.id }}"
+                                   value="{{ information.start_date }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="end_date{{ information.id }}" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="end_date{{ information.id }}"
+                                   name="end_date{{ information.id }}"
+                                   value="{{ information.end_date }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="city{{ information.id }}" class="form-label">City</label>
+                            <input type="text" class="form-control" id="city{{ information.id }}"
+                                   name="city{{ information.id }}"
+                                   value="{{ information.city }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="country{{ information.id }}" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="country{{ information.id }}"
+                                   name="country{{ information.id }}"
+                                   value="{{ information.country }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <!-- Full Column -->
+        {% if forloop.counter0|mod:3 == 0 %}
+            <div class="card col-md-12" style="border-top-left-radius: 0;border-top-right-radius:0;">
+                <div class="row d-flex justify-content-between edu_plr">
+                    <div class="col-md-8"><span class="card-sec-title">Company {{ forloop.counter }}</span></div>
+                    <div class="col-md-3">
+                    <span style="color: #ff9344;float: right;">
+                        <button onclick="delete_workinfo('{{ key }}', '{{ information.id }}')"
+                                style="border: none;background: none;color: red"><i
+                                class="bi bi-trash-fill"></i></button>
+                    </span>
+                        <span style="color: #ff9344;float: right;">
+                        <button onclick="return work_profile_validation('{{ key }}', '{{ information.id }}');"
+                                style="border: none;background: none;color: #ff9344">Save</button>
+                    </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="company_name{{ information.id }}" class="form-label">Company
+                                name</label>
+                            <input type="text" class="form-control" id="company_name{{ information.id }}"
+                                   name="company_name{{ information.id }}"
+                                   value="{{ information.name }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="designation{{ information.id }}"
+                                   class="form-label">Designation/Position</label>
+                            <input type="text" class="form-control" id="designation{{ information.id }}"
+                                   name="designation{{ information.id }}"
+                                   value="{{ information.designation }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="start_date{{ information.id }}" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="start_date{{ information.id }}"
+                                   name="start_date{{ information.id }}"
+                                   value="{{ information.start_date }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="end_date{{ information.id }}" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="end_date{{ information.id }}"
+                                   name="end_date{{ information.id }}"
+                                   value="{{ information.end_date }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="city{{ information.id }}" class="form-label">City</label>
+                            <input type="text" class="form-control" id="city{{ information.id }}"
+                                   name="city{{ information.id }}"
+                                   value="{{ information.city }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="country{{ information.id }}" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="country{{ information.id }}"
+                                   name="country{{ information.id }}"
+                                   value="{{ information.country }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% if forloop.counter0|mod:3 == 2 %}
+            <!-- Right Column -->
+            <div class="card col-md-6"
+                 style="border-top-right-radius: 0;border-bottom-right-radius:0;border-bottom-left-radius:0;">
+                <div class="row d-flex justify-content-between edu_plr">
+                    <div class="col-md-8"><span class="card-sec-title">Company {{ forloop.counter }}</span></div>
+                    <div class="col-md-3">
+                    <span style="color: #ff9344;float: right;">
+                        <button onclick="delete_workinfo('{{ key }}', '{{ information.id }}')"
+                                style="border: none;background: none;color: red"><i
+                                class="bi bi-trash-fill"></i></button>
+                    </span>
+                        <span style="color: #ff9344;float: right;">
+                        <button onclick="return work_profile_validation('{{ key }}', '{{ information.id }}');"
+                                style="border: none;background: none;color: #ff9344">Save</button>
+                    </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="company_name{{ information.id }}" class="form-label">Company name</label>
+                            <input type="text" class="form-control" id="company_name{{ information.id }}"
+                                   name="company_name{{ information.id }}"
+                                   value="{{ information.name }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="designation{{ information.id }}" class="form-label">Designation/Position</label>
+                            <input type="text" class="form-control" id="designation{{ information.id }}"
+                                   name="designation{{ information.id }}"
+                                   value="{{ information.designation }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="start_date{{ information.id }}" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="start_date{{ information.id }}"
+                                   name="start_date{{ information.id }}"
+                                   value="{{ information.start_date }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="end_date{{ information.id }}" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="end_date{{ information.id }}"
+                                   name="end_date{{ information.id }}"
+                                   value="{{ information.end_date }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="city{{ information.id }}" class="form-label">City</label>
+                            <input type="text" class="form-control" id="city{{ information.id }}"
+                                   name="city{{ information.id }}"
+                                   value="{{ information.city }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="country{{ information.id }}" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="country{{ information.id }}"
+                                   name="country{{ information.id }}"
+                                   value="{{ information.country }}">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{#    <button type="submit" style="margin: 1rem;" class="btn quiz_btn float-end" >Submit</button>#}

@@ -1,0 +1,267 @@
+body {
+    font-family: 'Poppins';
+}
+
+.resume-card-left {
+    background-color: #263238;
+    border-radius: 0;
+}
+
+.basic-icon {
+    margin-left: 1rem;
+}
+
+#myResume_1 {
+    display: none;
+}
+
+/* Bootstrap class Modification */
+.card-img,
+.card-img-top {
+    border-radius: 0;
+    width: auto;
+
+}
+
+.card-footer {
+    background-color: #263238;
+}
+
+.card-img,
+.card-img-bottom,
+.card-img-top {
+    margin: 1rem 3rem 1rem 3rem;
+    width: auto;
+}
+
+.card-title {
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.card-body {
+    color: white;
+    margin-top: -1.5rem;
+    padding-right: 0.3125rem;
+}
+
+/* Bootstrap class Modification End */
+
+.text-field-header {
+    color: #bebebe;
+    font-weight: 700;
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+    margin-top: -0.3rem;
+}
+
+.text-field-profession {
+    font-weight: 500;
+    font-size: 0.7rem;
+    margin-top: -0.4rem;
+}
+
+.text-field {
+    color: white;
+    font-weight: 100;
+    font-size: 0.7rem;
+}
+
+.date {
+    margin-top: 1rem;
+}
+
+.list-item {
+    font-weight: 100;
+    font-size: 0.7rem;
+}
+
+.sm-icon {
+    padding: 0 0.15rem 0 0.15rem;
+}
+
+.page-link {
+    color: #FF9344;
+    border: 0;
+}
+
+.page-link:hover {
+    color: white;
+    background-color: #FF9344;
+    border: #FF9344;
+}
+
+/* Column right */
+.right-column {
+    margin-left: -1.5rem;
+}
+
+.resume-card-right {
+    border-radius: 0;
+    background-color: white;
+    border: 0;
+    padding-top: 2rem;
+}
+
+.card-title-right {
+    color: black;
+    opacity: 50%;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+}
+
+.content {
+    color: black;
+    opacity: 50%;
+    font-size: 0.7rem;
+}
+
+.horizontal-line {
+    color: black;
+    margin: .5rem 0 0.5rem 0;
+}
+
+.bold-sub {
+    color: black;
+    font-size: 0.7rem;
+}
+
+.myMargin {
+    margin-bottom: 0;
+}
+
+.name {
+    font-weight: 900;
+}
+
+.curriculam-list {
+    color: black;
+    font-size: 0.7rem;
+    opacity: 50%;
+}
+
+/* Resume Page 2 */
+.data-in-project {
+    color: black;
+}
+
+.sub-list {
+    font-size: 0.7rem;
+}
+
+/* Resume Page 2 */
+
+/* Custom Section CSS */
+.custom_title {
+    color: black;
+    opacity: 50%;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.8125rem;
+}
+
+.horizontal-line-1 {
+    color: black;
+    margin: 0 0.45rem 1rem 0.75rem !important;
+}
+
+.custom_content {
+    color: black;
+    opacity: 50%;
+    font-size: 0.7rem;
+    margin: 0 1rem 1rem 1rem;
+}
+
+.insert_button {
+    font-size: 0.875rem;
+    border: 1px solid #FF9344;
+    color: #FF9344;
+}
+
+/* Custom Section CSS */
+.proj-description {
+    margin-top: -1rem;
+}
+
+.proj-link {
+    margin-top: -1rem;
+}
+
+/*Drishty*/
+
+#bio-count.green {
+    color: green;
+}
+
+#bio-count.red {
+    color: red;
+
+}
+
+#bio-area-container {
+    position: relative;
+}
+
+#bio-count-container {
+    position: absolute;
+    bottom: 3px;
+    right: 5px;
+    padding: 5px;
+}
+
+#bio-count-container.text-muted {
+    opacity: 70%;
+    font-size: 12px;
+}
+
+#achieve-count.green {
+    color: green;
+}
+
+#achieve-count.red {
+    color: red;
+
+}
+
+#achieve-area-container {
+    position: relative;
+}
+
+#achieve-count-container {
+    position: absolute;
+    bottom: 3px;
+    right: 5px;
+    padding: 5px;
+}
+
+#achieve-count-container.text-muted {
+    opacity: 70%;
+    font-size: 12px;
+}
+
+/*drishty*/
+
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #ff9344;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.resume-preview-dlt-button {
+    background-color: transparent;
+    color: #ff9344;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}

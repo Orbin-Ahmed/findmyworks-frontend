@@ -1,0 +1,115 @@
+
+<div class="card card_item card-animation-next" id="project_page_1" data-step>
+    <h3 class="step-title">Achievements on your bucket</h3>
+
+    <div class="col-md-12 nMargin input-control">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control input" id="proj-title"
+            placeholder="e.g. Achievements, Project name etc.">
+        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 input-control">
+            <label class="form-label">Start date</label>
+            <input type="date" class="form-control input" id="proj-start-date">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+        <div class="col-md-6 input-control">
+            <label class="form-label">End date</label>
+            <input type="date" class="form-control input" id="project-end-date">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error" id="current_project_error1"></div>
+            <div class="pt-2">
+                <input class="form-check-input" type="checkbox" value="" id="current-proj"
+                    onclick="currently_tick(this);">
+                <label class="form-check-label" for="current-proj">
+                    Currently working
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 input-control" id="achieve-area-container" >
+        <label class="form-label">Description</label>
+        <textarea type="text" class="form-control input" style="height: 7rem;" id="proj-description"
+            placeholder="Maximum 100 words..."></textarea>
+        <p class="text-muted" id="achieve-count-container"><span id="achieve-count">0/100</span></p>
+        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+    </div>
+
+    <div class="col-md-12">
+        <label class="form-label">Add certificate/ repository link/ portfolio link</label>
+        <input type="text" class="form-control input" id="proj-link" placeholder="e.g. github.com/repo_name">
+    </div>
+    <!-- Add work Button -->
+    <p class="add_btn" id="proj_add_pg" style="display: block;"><button type="button" class="btn" id="add_proj"
+            onclick="add_project();"><i class="bi bi-plus-lg add_icon"></i></button>Add more Work level</p>
+    <!-- 1st Page Pagination -->
+    <ul class=" col-md-12 pagination mt-3 justify-content-between" style="display: none;"
+        id="proj_pagination_1">
+        <li class="page-item"><button type="button" id="proj_btn_1" class="page-link bi bi-chevron-compact-left" disabled></button></li>
+        <li class="page-item number myStep-1" id="proj_page_1"><span>1</span></li>
+        <li class="page-item number" id="proj_page_2"><span>2</span></li>
+        <li class="page-item"><button type="button" id="proj_btn_2" class="page-link bi bi-chevron-compact-right"
+                onclick="proj_change(this.id);"></button></li>
+    </ul>
+    <div class="data-np-btn-1">
+        <button type="button" class="prvious_btn" onclick="next_page_1();page_hide_prev('project_page_1');page_show_next('skill_add_page');prevAnimation('skill_add_page');" data-previous>&#8592; Previous</button>
+        <button type="button" class="next_btn" id="project_next" onclick="validateInputs5()">Next &#8594;</button>
+    </div>
+</div>
+
+
+<!-- 2nd Page Achievement -->
+<div class="card card_education" id="project_page_2">
+    <h3 class="step-title">Achievements on your bucket</h3>
+
+    <div class="col-md-12 nMargin input-control">
+        <label class="form-label">Title</label>
+        <button type="button" onclick="delete_sec_page('project_page_1', 'project_page_2', 'proj_pagination_1', 'project-area');" class="delete-button"><i class="bi bi-trash"></i></button>
+
+        <input type="text" class="form-control input" id="proj-title1"
+            placeholder="e.g. Achievements, Project name etc.">
+        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 input-control">
+            <label class="form-label">Start date</label>
+            <input type="date" class="form-control input" id="proj-start-date1">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+        <div class="col-md-6 input-control">
+            <label class="form-label">End date</label>
+            <input type="date" class="form-control input" id="project-end-date1">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error" id="current_project_error2"></div>
+            <div class="pt-2">
+                <input class="form-check-input" type="checkbox" value="" id="current-proj1"
+                    onclick="currently_tick(this);">
+                <label class="form-check-label" for="current-proj1">
+                    Currently working
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 input-control">
+        <label class="form-label">Description</label>
+        <textarea type="text" class="form-control input" style="height: 7rem;" id="proj-description1"
+            placeholder="Maximum 100 words..."></textarea>
+        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+    </div>
+
+    <div class="col-md-12">
+        <label class="form-label">Add certificate/ repository link/ portfolio link</label>
+        <input type="text" class="form-control input" id="proj-link1" placeholder="e.g. github.com/repo_name">
+    </div>
+    <!-- 2nd Page Pagination -->
+    <ul class=" col-md-12 pagination mt-3 justify-content-between" id="proj_pagination_2">
+        <li class="page-item"><button type="button" id="proj_btn_3" class="page-link bi bi-chevron-compact-left"
+                onclick="achievements_validation(this.id);"></button></li>
+        <li class="page-item number" id="proj_page_3"><span>1</span></li>
+        <li class="page-item number myStep-1" id="proj_page_4"><span>2</span></li>
+        <li class="page-item"><button type="button" id="proj_btn_4" class="page-link bi bi-chevron-compact-right" disabled></button></li>
+    </ul>
+</div>

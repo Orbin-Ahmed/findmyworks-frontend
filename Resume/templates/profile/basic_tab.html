@@ -1,0 +1,126 @@
+<form method="post" id="profile_form" action="/profile/">
+    <div class="row" style="margin-bottom: -2rem;z-index: 10;position: relative;">
+        <div class="col-md-12">
+            <button type="button" style="border: none;background: none;float: right"
+                    onclick="edit_toggle_1();">
+                            <span style="color: #ff9344;">
+                                <i class="bi bi-pencil" style="margin-right: 0.5rem;"></i><span>Edit</span></span>
+            </button>
+        </div>
+    </div>
+    {% csrf_token %}
+    <div class="row d-flex">
+        <div class="col-md-12 input-control" style="padding: 0 0.5rem;">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control input" id="name" name="name" placeholder="e.g. John"
+                   value="{{ User_details.first_name }} {{ User_details.last_name }}" disabled>
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+    </div>
+
+    <div class="row d-flex">
+        <div class="col-md-6 input-control" style="padding: 0 0.5rem;">
+            <label class="form-label">Profession</label>
+            <input type="text" class="form-control input" id="profession" name="profession"
+                   placeholder="e.g. Project Manager" value="{{ resume_basic.profession }}" disabled>
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+        <div class="col-md-6 input-control" style="padding: 0 0.5rem;">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" class="form-control input" id="date_of_birth" name="date_of_birth"
+                   value="{{ resume_basic.date_of_birth }}" disabled>
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+    </div>
+
+    <div class="row d-flex">
+        <div class="col-md-6" style="padding: 0 0.5rem;">
+            <label class="form-label">Phone</label>
+            <div class="input-group input-control">
+                <button class="btn btn-outline-secondary dropdown-toggle bangladesh" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" disabled>+880
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">+880</a></li>
+                </ul>
+                <input type="text" class="form-control input" id="phone" name="phone_number"
+                       placeholder="e.g. +880123456789" value="{{ resume_basic.phone_number }}" disabled
+                       aria-label="Text input with dropdown button">
+
+                {#            <input type="text" class="form-control input" id="phone" name="phone_number"#}
+                {#                   placeholder="e.g. +880123456789" value="{{ resume_basic.phone_number }}" disabled>#}
+                <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+            </div>
+        </div>
+        <div class="col-md-6 input-control" style="padding: 0 0.5rem;">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control input" id="email" name="email" placeholder="e.g. user@mail.com"
+                   value="{{ resume_basic.email }}" disabled>
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+    </div>
+
+    <div class="col-md-12 input-control" style="padding: 0 0.5rem;">
+        <label class="form-label">Address</label>
+        <input type="text" class="form-control input" id="address" name="address"
+               placeholder="e.g. Plot #, Road #, Area name" value="{{ resume_basic.address }}" disabled>
+        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+    </div>
+    <button id="basic_edit_btn" type="submit" class="btn quiz_btn float-end" onclick="return basic_validation()"
+            disabled>Submit
+    </button>
+</form>
+
+
+{#<form method="post" action="/profile/">#}
+{#    <div class="row" style="margin-bottom: -2rem;z-index: 10;position: relative;">#}
+{#        <div class="col-md-12">#}
+{#            <button type="button" style="border: none;background: none;float: right"#}
+{#                    onclick="edit_toggle_1();">#}
+{#                            <span style="color: #ff9344;">#}
+{#                                <i class="bi bi-pencil" style="margin-right: 0.5rem;"></i><span>Edit</span></span>#}
+{#            </button>#}
+{#        </div>#}
+{#    </div>#}
+{#    {% csrf_token %}#}
+{#    <div class="row d-flex">#}
+{#        <div class="col-md-12 p-2">#}
+{#            <label class="form-label">Name</label>#}
+{#            <input type="text" class="form-control input" id="name" name="name" placeholder="e.g. John"#}
+{#                   value="{{ User_details.first_name }} {{ User_details.last_name }}" disabled>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <div class="row d-flex">#}
+{#        <div class="col-md-6 p-2">#}
+{#            <label class="form-label">Profession</label>#}
+{#            <input type="text" class="form-control input" id="profession" name="profession"#}
+{#                   placeholder="e.g. Project Manager" value="{{ resume_basic.profession }}" disabled>#}
+{#        </div>#}
+{#        <div class="col-md-6 mb-3 p-2">#}
+{#            <label class="form-label">Date of Birth</label>#}
+{#            <input type="date" class="form-control input" id="date_of_birth" name="date_of_birth"#}
+{#                   value="{{ resume_basic.date_of_birth }}" disabled>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <div class="row d-flex">#}
+{#        <div class="col-md-6 p-2">#}
+{#            <label class="form-label">Phone</label>#}
+{#            <input type="text" class="form-control input" id="phone" name="phone_number"#}
+{#                   placeholder="e.g. +880123456789" value="{{ resume_basic.phone_number }}" disabled>#}
+{#        </div>#}
+{#        <div class="col-md-6 p-2">#}
+{#            <label class="form-label">Email</label>#}
+{#            <input type="email" class="form-control input" id="email" name="email" placeholder="e.g. user@mail.com"#}
+{#                   value="{{ resume_basic.email }}" disabled>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <div class="col-md-12 p-2">#}
+{#        <label class="form-label">Address</label>#}
+{#        <input type="text" class="form-control input" id="address" name="address"#}
+{#               placeholder="e.g. Plot #, Road #, Area name" value="{{ resume_basic.address }}" disabled>#}
+{#    </div>#}
+{#    <button id="basic_edit_btn" type="submit" class="btn quiz_btn float-end" disabled>Submit</button>#}
+{#</form>#}

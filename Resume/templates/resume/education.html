@@ -1,0 +1,201 @@
+<div class="card card_item card-animation-next" id="education_page" data-step>
+    <h3 class="step-title">Qualifications that you have</h3>
+    <div class="row nMargin">
+        <div class="col-md-6 input-control">
+            <label class="form-label">Level of study</label>
+            <select class="form-select" id="levelofstudy" onclick="select_degree(this);">
+                <option value="">--Please Chose One--</option>
+                <option value="SSC">SSC</option>
+                <option value="HSC">HSC</option>
+                <option value="BSc">BSc</option>
+                <option value="BBA">BBA</option>
+                <option value="MSc">MSc</option>
+                <option value="MSc">Phd</option>
+            </select>
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+
+        <div class="col-md-6 input-control">
+            <label class="form-label">Major</label>
+            <input type="text" class="form-control input" id="major" placeholder="e.g. HRM">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+
+        </div>
+    </div>
+
+    <div class="col-md-12 input-control">
+        <label class="form-label">Result</label>
+        <input type="text" class="form-control input" id="result" placeholder="e.g. CGPA - 3.40">
+        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 input-control">
+            <label class="form-label">Start date</label>
+            <input type="date" class="form-control input" id="study_start_date">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+        <div class="col-md-6 input-control">
+            <label class="form-label">End date</label>
+            <input type="date" class="form-control input" id="study_end_date">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error" id="currently_study_error1"></div>
+            <div class="pb-2">
+                <input class="form-check-input" type="checkbox" value="" id="Currently_study"
+                       onclick="currently_tick(this);">
+                <label class="form-check-label" for="Currently_study">
+                    Currently studying
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {#    Institutes Name#}
+        <div class="col-md-6 input-control">
+            <label class="form-label" for="Institute_name">Choose Institutes:</label>
+            <select class="form-select" name="Institute_name" id="Institute_name" onclick="select_institutes(this);">
+                {% for name in institutes_name %}
+                    <option value="{{ name.id }}">{{ name.name }}</option>
+                {% endfor %}
+            </select>
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+        {#    Institutes Name#}
+        <div class="col-md-6 mb input-control">
+            <label class="form-label">Address</label>
+            <input type="text" class="form-control input" id="Institute_Address"
+                   placeholder="e.g. Mohakhali, Dhaka, Bangladesh">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;" class="error"></div>
+        </div>
+    </div>
+    <div class="input-group">
+        <input type="text" class="form-control" id="all-curriculam" value=""
+               placeholder="Add Extra Curriculam activities" onkeyup="curriculam_btn_add('all-curriculam');">
+        <button class="btn" style="border: 1px solid #ced4da; color: #FF9344;" onclick="curriculam('all-curriculam')"
+                type="button" id="all-curriculam-button-addon2" disabled><i class="bi bi-plus-lg Curriculam_add"></i>
+        </button>
+    </div>
+
+    <!-- Add education Button -->
+    <p class="add_btn" id="education_add_pg" style="display: block;">
+        <button type="button" class="btn" id="add_edu"
+                onclick="add_education();"><i class="bi bi-plus-lg add_icon"></i></button>
+        Add more education level
+    </p>
+
+    <!-- First Page Pagination -->
+    <ul class="col-md-12 pagination mt-3 justify-content-between" style="display: none;"
+        id="education_pagination_1">
+        <li class="page-item">
+            <button type="button" id="educate_btn_1" class="page-link bi bi-chevron-compact-left" disabled></button>
+        </li>
+        <li class="page-item number myStep-1" id="educate_page_1"><span>1</span></li>
+        <li class="page-item number" id="educate_page_2"><span>2</span></li>
+        <li class="page-item">
+            <button type="button" id="educate_btn_2" class="page-link bi bi-chevron-compact-right"
+                    onclick="education_change_btn(this.id);"></button>
+        </li>
+    </ul>
+    <div class="data-np-btn-1">
+        <button type="button" class="prvious_btn"
+                onclick="next_page_1();page_hide_prev('education_page');prevAnimation('basic_resume_form');"
+                data-previous>&#8592; Previous
+        </button>
+        <button type="button" class="next_btn" id="education_next"
+                onclick="return validateInputs2()">Next &#8594;
+        </button>
+    </div>
+</div>
+
+
+<!-- Education 2nd Hidden Page  -->
+<div class="card card_education" id="education_page_1">
+    <h3 class="step-title">Qualifications that you have</h3>
+
+    <div class="row nMargin">
+        <div class="col-md-6 mb-3 input-control">
+            <label class="form-label">Level of study</label>
+            <select class="form-select" id="levelofstudy1" onclick="select_degree1(this);">
+                <option value="">--Please Chose One--</option>
+                <option value="SSC">SSC</option>
+                <option value="HSC">HSC</option>
+                <option value="BSc">BSc</option>
+                <option value="BBA">BBA</option>
+                <option value="MSc">MSc</option>
+            </select>
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;" class="error"></div>
+        </div>
+        <div class="col-md-6 mb-3 input-control">
+            <label class="form-label">Major</label>
+            <button class="delete-button" type="button"
+                    onclick="delete_sec_page('education_page', 'education_page_1', 'education_pagination_1', 'custom-edu-sec-id', 'curriculam-area1');">
+                <i
+                        class="bi bi-trash"></i></button>
+            <input type="text" class="form-control input" id="major1" placeholder="e.g. HRM">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;" class="error"></div>
+        </div>
+    </div>
+
+    <div class="col-md-12 mb-3 input-control">
+        <label class="form-label">Result</label>
+        <input type="text" class="form-control input" id="result1" placeholder="e.g. CGPA - 3.40">
+        <div style="width: 100%;padding-top: 5px;font-size: 14px;" class="error"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3 input-control">
+            <label class="form-label">Start date</label>
+            <input type="date" class="form-control input" id="study_start_date1">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;" class="error"></div>
+        </div>
+        <div class="col-md-6 mb-3 input-control">
+            <label class="form-label">End date</label>
+            <input type="date" class="form-control input" id="study_end_date1">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error" id="currently_study_error2"></div>
+            <div class="pt-2">
+                <input class="form-check-input" type="checkbox" value="" id="Currently_study1"
+                       onclick="currently_tick(this);">
+                <label class="form-check-label" for="Currently_study1">
+                    Currently studying
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label" for="Institute_name1">Choose Institutes:</label>
+            <select class="form-select" name="Institute_name1" id="Institute_name1" onclick="select_institutes1(this);">
+                {% for name in institutes_name %}
+                    <option value="{{ name.id }}">{{ name.name }}</option>
+                {% endfor %}
+            </select>
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+        <div class="col-md-6 mb-3 input-control">
+            <label class="form-label">Address</label>
+            <input type="text" class="form-control input" id="Institute_Address1"
+                   placeholder="e.g. Mohakhali, Dhaka, Bangladesh">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" id="all-curriculam1" value=""
+               placeholder="Add Extra Curriculam activities" onkeyup="curriculam_btn_add('all-curriculam1');">
+        <button class="btn" style="border: 1px solid #ced4da; color: #FF9344;" onclick="curriculam_1('all-curriculam1')"
+                type="button" id="all-curriculam1-button-addon2" disabled><i class="bi bi-plus-lg Curriculam_add"></i>
+        </button>
+    </div>
+    <ul class=" col-md-12 pagination mt-3 justify-content-between" id="education_pagination_2">
+        <li class="page-item">
+            <button type="button" id="educate_btn_3" class="page-link bi bi-chevron-compact-left"
+                    onclick="education_validation(this.id)"></button>
+        </li>
+        <li class="page-item number" id="educate_page_3"><span>1</span></li>
+        <li class="page-item number myStep-1" id="educate_page_4"><span>2</span>
+        </li>
+        <li class="page-item">
+            <button type="button" id="educate_btn_4" class="page-link bi bi-chevron-compact-right" disabled></button>
+        </li>
+    </ul>
+</div>

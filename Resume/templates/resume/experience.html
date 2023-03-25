@@ -1,0 +1,152 @@
+<div class="card card_item card-animation-next" id="work_history_1" data-step>
+    <h3 class="step-title">Experiences that highlight you</h3>
+
+    <div class="row nMargin">
+        <div class="col-md-6 input-control">
+            <label class="form-label">Designation</label>
+            <input type="text" class="form-control input" id="designation" placeholder="e.g. Project Manger">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+        <div class="col-md-6 input-control">
+            <label class="form-label">Company name</label>
+            <input type="text" class="form-control input" id="company" placeholder="e.g. Increments Inc.">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-md-6 input-control">
+            <label class="form-label">Start date</label>
+            <input type="date" class="form-control input" id="company_start_date">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+        <div class="col-md-6 input-control">
+            <label class="form-label">End date</label>
+            <input type="date" class="form-control input" id="company_end_date">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error" id="currently_working_error1"></div>
+            <div class="pt-2">
+                <input class="form-check-input" type="checkbox" value="" id="currently_working"
+                       onclick="currently_tick(this);">
+                <label class="form-check-label" for="currently_working">
+                    Currently working
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 input-control">
+            <label class="form-label">Location</label>
+            <input type="text" class="form-control input" id="city_country" placeholder="e.g. Dhaka, Bangladesh">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+    </div>
+    <div class="input-group input-control">
+        <input type="text" class="form-control" id="all-responsibility" value="" placeholder="Add Responsibility"
+               onkeyup="curriculam_btn_add('all-responsibility');">
+        <div class="error"></div>
+        <button class="btn" style="border: 1px solid #ced4da; color: #FF9344;"
+                onclick="responsibility('all-responsibility')" type="button" id="all-responsibility-button-addon2"
+                disabled><i
+                class="bi bi-plus-lg Curriculam_add"></i></button>
+    </div>
+
+    <!-- Add work Button -->
+    <p class="add_btn" id="work_add_pg" style="display: block;">
+        <button type="button" class="btn" id="add_edu"
+                onclick="add_work_hist();"><i class="bi bi-plus-lg add_icon"></i></button>
+        Add more Work level
+    </p>
+
+    <!-- First Page Pagination -->
+    <ul class=" col-md-12 pagination mt-3 pagination-sm justify-content-between" style="display: none;"
+        id="work_pagination_1">
+        <li class="page-item">
+            <button type="button" id="work_btn_1" class="page-link bi bi-chevron-compact-left" disabled></button>
+        </li>
+        <li class="page-item number myStep-1" id="work_page_1"><span>1</span></li>
+        <li class="page-item number" id="work_page_2"><span>2</span></li>
+        <li class="page-item">
+            <button type="button" id="work_btn_2" class="page-link bi bi-chevron-compact-right"
+                    onclick="work_change(this.id);"></button>
+        </li>
+    </ul>
+
+    <div class="data-np-btn-1">
+        <button type="button" class="prvious_btn"
+                onclick="next_page_1();extra_1();page_hide_prev('work_history_1');prevAnimation('education_page');"
+                data-previous>&#8592; Previous
+        </button>
+        <button type="button" class="next_btn" id="experience_next" onclick="return validateInputs3();">Next &#8594;
+        </button>
+    </div>
+</div>
+
+<!-- 2nd page Experience -->
+<div class="card card_education" id="work_history_2">
+    <h3 class="step-title">Experiences that highlight you</h3>
+
+    <div class="row nMargin">
+        <div class="col-md-6 mb-3 input-control">
+            <label class="form-label">Designation</label>
+            <input type="text" class="form-control input" id="designation1" placeholder="e.g. Project Manger">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+        <div class="col-md-6 mb-3 input-control">
+            <label class="form-label">Company name</label>
+            <button type="button" onclick="delete_sec_page('work_history_1', 'work_history_2', 'work_pagination_1', 'work_sec_2', 'responsibility-area1');"
+                    class="delete-button"><i class="bi bi-trash"></i></button>
+            <input type="text" class="form-control input" id="company1" placeholder="e.g. Increments Inc.">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-md-6 mb-3 input-control">
+            <label for="company_start_date1" class="form-label">Start date</label>
+            <input type="date" class="form-control input" id="company_start_date1">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+        <div class="col-md-6 mb-3 input-control">
+            <label for="company_end_date1" class="form-label">End date</label>
+            <input type="date" class="form-control input" id="company_end_date1">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error" id="currently_working_error2"></div>
+            <div class="pt-2">
+                <input class="form-check-input" type="checkbox" value="" id="currently_working1"
+                       onclick="currently_tick(this);">
+                <label class="form-check-label" for="currently_working1">
+                    Currently working
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 mb-3 input-control">
+            <label class="form-label">Location</label>
+            <input type="text" class="form-control input" id="city_country1" placeholder="e.g. Dhaka, Bangladesh">
+            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+        </div>
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" id="all-responsibility1" value="" placeholder="Add Responsibility"
+               onkeyup="curriculam_btn_add('all-responsibility1');">
+        <button class="btn" style="border: 1px solid #ced4da; color: #FF9344;"
+                onclick="responsibility1('all-responsibility1')" type="button" id="all-responsibility1-button-addon2"
+                disabled><i
+                class="bi bi-plus-lg Curriculam_add"></i></button>
+    </div>
+
+    <ul class=" col-md-12 pagination mt-3 pagination-sm justify-content-between" id="work_pagination_2">
+        <li class="page-item">
+            <button type="button" id="work_btn_3" class="page-link bi bi-chevron-compact-left"
+                    onclick="experience_validation(this.id);"></button>
+        </li>
+        <li class="page-item number" id="work_page_3"><span>1</span></li>
+        <li class="page-item number myStep-1" id="work_page_4"><span>2</span></li>
+        <li class="page-item">
+            <button type="button" id="work_btn_4" class="page-link bi bi-chevron-compact-right" disabled></button>
+        </li>
+    </ul>
+</div>

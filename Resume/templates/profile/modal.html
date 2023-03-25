@@ -1,0 +1,245 @@
+<!-- Education Modal -->
+<div class="modal fade" id="educationModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Education Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {#                New Education Section#}
+                <div class="row">
+                    <div class="col-md-6 p-2 input-control">
+                        <label class="form-label">Institute name</label>
+                        <input name="institutes_name" type="text" class="form-control"
+                               id="new-institute_name" list="education_list">
+                        <datalist id="education_list">
+                            {% for name in institutes_name %}
+                                <option label="{{ name.id }}" value="{{ name.name }}">
+                            {% endfor %}
+                        </datalist>
+                        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                    </div>
+                    <div class="col-md-6 p-2 input-control">
+                        <label class="form-label">Concentration/Degree</label>
+                        <input type="text" class="form-control" id="new-concentration">
+                        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 p-2 input-control">
+                        <label class="form-label">Major</label>
+                        <input type="text" class="form-control" id="new-education_board">
+                        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                    </div>
+                    <div class="col-md-6 p-2 input-control">
+                        <label class="form-label">Result</label>
+                        <input type="text" class="form-control" id="new-result">
+                        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 p-2 input-control">
+                        <label class="form-label">Start date</label>
+                        <input type="date" class="form-control" id="study_start_date">
+                        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                    </div>
+                    <div class="col-md-6 p-2 input-control">
+                        <label class="form-label">End date</label>
+                        <input type="date" class="form-control" id="study_end_date">
+                        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 p-2 input-control">
+                        <label class="form-label">Address</label>
+                        <textarea type="text" class="form-control" id="new-Address"></textarea>
+                        <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                    </div>
+                </div>
+                {#                New Education Section End#}
+            </div>
+            <div class="modal-footer">
+                <button style="color: #FFFFFF;background: #ff9344" type="button" class="btn"
+                        onclick="return education_validation('{{ key }}')">Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Education Modal -->
+<!-- Skill Modal -->
+<div class="modal fade" id="skillModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Skill Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body input-control">
+                <label class="form-label">Skill Name</label>
+                <input type="text" class="form-control input" id="new-skill" placeholder="e.g. Python"
+                       value="">
+                <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+            </div>
+            <div class="modal-footer">
+                <button style="color: #FFFFFF;background: #ff9344" type="button" class="btn"
+                        onclick="return skill_validation('{{ key }}')">Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Skill Modal -->
+<!--Work Modal -->
+<div class="modal fade" id="workModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Work Experience Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" action="/add_work/">
+                {% csrf_token %}
+                <div class="modal-body">
+                    {#New Work Section#}
+
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label class="form-label">Company name</label>
+                            <input type="text" class="form-control" id="new-company_name" name="new-company_name"
+                                   value="">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label class="form-label">Designation/Position</label>
+                            <input type="text" class="form-control" id="new-designation" name="new-designation"
+                                   value="">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="new-start_date" name="new-start_date"
+                                   value="">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="new-end_date" name="new-end_date"
+                                   value="">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-control" id="new-city" name="new-city"
+                                   value="">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label class="form-label">Country</label>
+                            <input type="text" class="form-control" id="new-country" name="new-country"
+                                   value="">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    {#New Work Section End#}
+                </div>
+                <div class="modal-footer">
+                    <button style="color: #FFFFFF;background: #ff9344" type="submit" class="btn"
+                            onclick="return work_validation();">Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Work Modal -->
+{#Achievements modal#}
+<div class="modal fade" id="achievementsModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Achievements Experience Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" action="/add_achievements/">
+                {% csrf_token %}
+                <div class="modal-body">
+                    {#New Work Section#}
+
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="title{{ information.id }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title{{ information.id }}"
+                                   name="title">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="link{{ information.id }}" class="form-label">Github/Repo Link</label>
+                            <input type="text" class="form-control" id="link{{ information.id }}"
+                                   name="link">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="start_date{{ information.id }}" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="start_date{{ information.id }}"
+                                   name="start_date">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                        <div class="col-md-6 p-2 input-control">
+                            <label for="end_date{{ information.id }}" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="end_date{{ information.id }}"
+                                   name="end_date">
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 p-2 input-control" id="ach-area-container">
+                            <label for="description{{ information.id }}" class="form-label">Description</label>
+                            <textarea type="text" class="form-control" id="description{{ information.id }}" rows="3"
+                                      name="description"></textarea>
+                            <p class="text-muted" id="ach-count-container"><span id="ach-count">0/100</span></p>
+                            <div id="achMessage" class="ach-message"> Maximum 100 words are allowed</div>
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+                    </div>
+                    {#New Work Section End#}
+                </div>
+                <div class="modal-footer">
+                    <button style="color: #FFFFFF;background: #ff9344" type="submit" class="btn"
+                            onclick="return achievements_validation();">Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{#Achievements modal#}
+{#Share Modal#}
+<div class="modal fade" id="ShareModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Shareable Link</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label class="form-label">Link</label>
+                <input type="text" class="form-control input" id="share-link-href"
+                       value="https://findmyworks.com/share-resume/ANz7M41veQj_{{ User_details.first_name }}_A70d0vKU3c/{{ User_details.id }}_7Wz08VSZTu/">
+            </div>
+            <div class="modal-footer">
+                <button style="color: #FFFFFF;background: #ff9344" type="button" class="btn"
+                        onclick="copy_to_clipboard();">Copy to clipboard
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{#Share Modal#}

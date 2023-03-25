@@ -1,0 +1,83 @@
+
+
+<div class="card card_item card-animation-next" id="other_add_page" data-step>
+    <h3 class="step-title">Express you more</h3>
+    <div class="col-md-12 mb-3 nMargin">
+        <label class="form-label">Add your own</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="custom_section_name" placeholder="e.g. Hobbies">
+            <button class="btn" style="border: 1px solid #ced4da;" type="button" id="button-addon2_cus_sec"
+                onclick="custom_section();"><i class="bi bi-plus-lg skill_add"></i></button>
+        </div>
+    </div>
+    <!-- Fixed Section -->
+    <div class="row d-flex justify-content-between mt-3">
+        <div class="col-md-4">
+            <input class="form-check-input" type="checkbox" value="" id="custom_sec1_check" onclick="add_sec(this);">
+            <label class="form-check-label" for="custom_sec1_check" id="custom_sec1_label">Software proficiency</label>
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control custom_sec1" value="" id="custom_sec1"
+                placeholder="Insert Section Body Here" disabled>
+        </div>
+        <div class="col-md-2" style="margin-right: -1.8rem;">
+            <button class="btn insert_button" id="custom_sec1_content" type="button"
+                onclick="add_conent(this, 'custom_sec1_check');" disabled>Insert</button>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-between mt-3">
+        <div class="col-md-4">
+            <input class="form-check-input" type="checkbox" value="" id="custom_sec2_check" onclick="add_sec(this);">
+            <label class="form-check-label" for="custom_sec2_check" id="custom_sec2_label">Languages</label>
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control custom_sec2" value="" id="custom_sec2"
+                placeholder="Insert Section Body Here" disabled>
+        </div>
+        <div class="col-md-2" style="margin-right: -1.8rem;">
+            <button class="btn insert_button" type="button" id="custom_sec2_content"
+                onclick="add_conent(this, 'custom_sec2_check');" disabled>Insert</button>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-between mt-3">
+        <div class="col-md-4">
+            <input class="form-check-input" type="checkbox" value="" id="custom_sec3_check" onclick="add_sec(this);">
+            <label class="form-check-label" for="custom_sec3_check" id="custom_sec3_label">Certifications</label>
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control custom_sec3" value="" id="custom_sec3"
+                placeholder="Insert Section Body Here" disabled>
+        </div>
+        <div class="col-md-2" style="margin-right: -1.8rem;">
+            <button class="btn insert_button" type="button" id="custom_sec3_content"
+                onclick="add_conent(this, 'custom_sec3_check');" disabled>Insert</button>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-between mt-3">
+        <div class="col-md-4">
+            <input class="form-check-input" type="checkbox" value="" id="custom_sec4_check" onclick="add_sec(this);">
+            <label class="form-check-label" for="custom_sec4_check" id="custom_sec4_label">Interests</label>
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control custom_sec4" value="" id="custom_sec4"
+                placeholder="Insert Section Body Here" disabled>
+        </div>
+        <div class="col-md-2" style="margin-right: -1.8rem;">
+            <button class="btn insert_button" type="button" id="custom_sec4_content"
+                onclick="add_conent(this, 'custom_sec4_check');" disabled>Insert</button>
+        </div>
+    </div>
+    <div id="new_section">
+
+    </div>
+
+
+    <!-- Fixed Section -->
+    <div class="data-np-btn-1">
+        <button type="button" class="prvious_btn" onclick="next_page_1();project_page_1();page_hide_prev('other_add_page');prevAnimation('project_page_1');" data-previous>&#8592; Previous</button>
+        <button type="button" class="next_btn" onclick="next_page();extra_3('other_add_page');page_show_next('finalize_section');nextAnimation('finalize_section');setMyCookies();final_section_push();Cookies_writter();" data-next>Next &#8594;</button>
+    </div>
+</div>

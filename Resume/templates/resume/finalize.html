@@ -1,0 +1,123 @@
+<div class="finalize_css card_item card-animation-next" id="finalize_section" data-step>
+    <h3 class="step-title">Let's seasoning your resume</h3>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-3">
+            <!-- Your Image Goes Here -->
+            {% load static %}
+            <img id="imageField" src="{% static '/image/imageBox.svg' %}" alt="your image" width="100px"
+                 height="100px"/>
+            <label class="form-label imageFcss m-auto">Your image</label>
+        </div>
+        <div class="col-md-9">
+            <div class="card mycard">
+
+                <div class="row d-flex justify-content-center">
+                    <form method="post">
+                        <label class="form-label img">Photo</label>
+                        <div class="col-md-9 input-control">
+                            <input name="file" type="file" class="form-control" onchange="readURL(this);"
+                                   id="file" accept="image/png,image/jpeg" required>
+                            <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                        </div>
+{#                        <div class="col-md-2">#}
+{#                            <button type="button" id="upload" class="submit">Submit</button>#}
+{#                        </div>#}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Publication Section-->
+<!--    <div class="row d-flex justify-content-center">-->
+<!--        <div class="col-md-12">-->
+<!--            <div class="card my-card-social">-->
+<!--                <h4>Publication</h4>-->
+
+<!--                <div class="row d-flex justify-content-between">-->
+<!--                    <div class="col-md-12">-->
+<!--                        <label class="form-label">Title</label>-->
+<!--                        <input type="text" class="form-control input" style="margin-right: -2.5rem;" id="publication_title"-->
+<!--                               placeholder="" value="">-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="row d-flex justify-content-between mt-3">-->
+<!--                    <div class="col-md-6">-->
+<!--                        <label class="form-label">Year</label>-->
+<!--                        <input type="text" class="form-control input" style="margin-right: -2.5rem;" id="publication_year"-->
+<!--                               placeholder="" value="">-->
+<!--                    </div>-->
+<!--                    <div class="col-md-6">-->
+<!--                        <label class="form-label">Link</label>-->
+<!--                        <input type="text" class="form-control input" style="margin-right: -2.5rem;" id="publication_link"-->
+<!--                               placeholder="" value="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+            <div class="card my-card-social">
+                <h4 class="pb-3">Add Social Media</h4>
+
+                <div class="row d-flex justify-content-between mt-3">
+                    <div class="col-md-3">
+                        <input class="form-check-input" type="checkbox" value="" id="ldTick"
+                               onclick="social_tick(this);">
+                        <label class="form-check-label" for="ldTick">
+                            linkedin
+                        </label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control input" style="margin-right: -2.5rem;" id="ldLink"
+                               placeholder="Insert profile link here" value="" disabled>
+                        <p class="link_error" id="ldLink_error"></p>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-between mt-3">
+                    <div class="col-md-3">
+                        <input class="form-check-input" type="checkbox" value="" id="fbTick"
+                               onclick="social_tick(this);">
+                        <label class="form-check-label" for="fbTick">
+                            Facebook
+                        </label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control input" style="margin-right: -2.5rem;" id="fbLink"
+                               placeholder="Insert profile link here" value="" disabled>
+                        <p class="link_error" id="fbLink_error"></p>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-between mt-3">
+                    <div class="col-md-3">
+                        <input class="form-check-input" type="checkbox" value="" id="twTick"
+                               onclick="social_tick(this);">
+                        <label class="form-check-label" for="twTick">
+                            Twitter
+                        </label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control input" style="margin-right: -2.5rem;" id="twLink"
+                               placeholder="Insert profile link here" value="" disabled>
+                        <p class="link_error" id="twLink_error"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-np-btn-1">
+        <button type="button" class="prvious_btn"
+                onclick="next_page_1();page_hide_prev('finalize_section');page_show_next('other_add_page');prevAnimation('other_add_page');"
+                data-previous>&#8592; Previous
+        </button>
+        <button style="margin: 1rem 0;" type="button" class="next_btn" id="finish_button"
+                onclick="return ValiDateProfileImageInput()">Finish
+            &#8594;
+        </button>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+{% load static %}
+<p class="project-details-header">{{ details.title }}</p>
+<p class="project-details-category">{{ details.category }}</p>
+{#<p class="card-text"><span class="text-muted">Team members:</span>#}
+{#    <img style="margin-left: 0.5rem;" src="{% static '/image/project/member_ 1.svg' %}" alt="">#}
+{#    <img class="member-2" src="{% static '/image/project/member_ 2.svg' %}" alt="">#}
+{#    <img class="member-2" src="{% static '/image/project/member_ 3.svg' %}" alt="">#}
+{#    <span class="member">Jacob Jones,</span>#}
+{#    <span class="member">Floyd Miles,</span>#}
+{#    <span class="member">Bessie Cooper</span>#}
+    <img class="love" src="{% static '/image/love.svg' %}" alt="">
+
+</p>
+
+<div id="project_carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% if details.image.0.image %}
+            <div class="carousel-item active">
+                <img style="height: 20rem" src="{{ details.image.0.image }}" class="d-block w-100"
+                     alt="...">
+            </div>
+        {% endif %}
+        {% if details.image.1.image %}
+            <div class="carousel-item">
+                <img style="height: 20rem" src="{{ details.image.1.image }}" class="d-block w-100"
+                     alt="...">
+            </div>
+        {% endif %}
+        {% if details.image.2.image %}
+            <div class="carousel-item">
+                <img style="height: 20rem" src="{{ details.image.2.image }}" class="d-block w-100"
+                     alt="...">
+            </div>
+        {% endif %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#project_carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#project_carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<p class="project-details-header pt-3">Project details</p>
+<p>{{ details.project_description }}</p>
+{#<ol>#}
+{#    <li>Velit sed etiam pretium dictum eget duis libero nulla.</li>#}
+{#    <li>Velit sed etiam pretium dictum eget duis libero nulla.</li>#}
+{#    <li>Velit sed etiam pretium dictum eget duis libero nulla.</li>#}
+{#    <li>Velit sed etiam pretium dictum eget duis libero nulla.</li>#}
+{#    <li>Velit sed etiam pretium dictum eget duis libero nulla.</li>#}
+{#</ol>#}

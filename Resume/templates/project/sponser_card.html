@@ -1,0 +1,41 @@
+{% load static %}
+<div class="card sponser-card" id="payment-card-style-2" style="display: none;">
+    <div class="card-body">
+        <h5 class="card-title">Select payment method</h5>
+        <div class="row d-flex justify-content-evenly">
+            <div class="col-4 text-center border-style active-1" id="pay_mobile" onclick="payment_gateway(this.id);">
+                <img src="{% static '/image/wallet.png' %}" width="30%"><br>
+                <span>Mobile banking</span>
+            </div>
+
+            <div class="col-3 text-center border-style" id="pay_card" onclick="payment_gateway(this.id);">
+                <img src="{% static '/image/card.png' %}" width="40%"><br>
+                <span>Card</span>
+            </div>
+
+            <div class="col-4 text-center border-style" id="pay_bank" onclick="payment_gateway(this.id);">
+                <img src="{% static '/image/bank.png' %}" width="30%"><br>
+                <span>Bank Account</span>
+            </div>
+        </div>
+
+        <div class="pay_anim" style="display: block;" id="mobile">
+            {% include 'project/payment_methods/mobile_banking.html'%}
+        </div>
+
+        <div class="pay_anim" style="display: none;" id="card">
+            {% include 'project/payment_methods/card_payment.html'%}
+        </div>
+
+        <div class="pay_anim" style="display: none;" id="bank">
+            {% include 'project/payment_methods/bank_payment.html'%}
+        </div>
+
+        <hr>
+        <p style="margin-bottom: 2rem;">
+            <span>Fund: </span><span><b>${% if data.price == null %}0{% else %}{{ details.price }}{% endif %}</b></span>
+            <button class="btn spn-btn" type="button"><span class="money-bag"><img
+                        src="{% static '/image/Group.svg' %}"></span>Sponsor</button>
+        </p>
+    </div>
+</div>

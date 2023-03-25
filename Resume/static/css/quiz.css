@@ -1,0 +1,185 @@
+/*
+ * Copyright (c) 2022. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
+/* title */
+body {
+    background-color: #F0F2F9;
+    overflow-x: clip;
+}
+
+.progress {
+    height: 0.2rem;
+    background-color: #CBCBCB;
+}
+
+.progress-bar {
+    background: linear-gradient(90.26deg, #FF9344 0%, #FF54D9 120.06%);
+
+}
+
+.headline {
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: 'Poppins';
+}
+
+.q1 {
+    font-weight: 500;
+}
+
+.question1 {
+    font-weight: 500;
+}
+
+.btn {
+    font-size: 1rem;
+    font-weight: 500;
+    background: #FF9344;
+    color: white;
+}
+
+.btn:hover {
+    color: white;
+}
+
+.right-one {
+    position: absolute;
+    width: 176.68px;
+    height: 176.68px;
+    right: 0;
+    top: 31%;
+    opacity: 0.1;
+}
+
+.left-one {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+}
+
+.bottom-one {
+    position: absolute;
+    bottom: 0;
+    right: 91%;
+    opacity: 0.1;
+}
+
+.time-out {
+    padding: 10px 20px;
+    gap: 10px;
+    width: 200px;
+    height: 47px;
+    background: rgba(112, 112, 112, 0.3);
+    border-radius: 6px;
+    color: #FFFFFF;
+}
+
+.fail {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 21px;
+    color: rgba(26, 26, 64, 0.5);
+}
+
+.per {
+    color: #D92814;
+    font-weight: 800;
+}
+
+.pass-per {
+    color: #2EC659;
+    font-weight: 800;
+}
+
+.left-one-pass {
+    position: absolute;
+    right: -10px;
+    top: 800px;
+    opacity: 0.1;
+}
+
+.bottom-one-pass {
+    position: absolute;
+    right: 750px;
+    opacity: 0.1;
+}
+
+.question2 {
+    font-weight: 500;
+}
+
+.q2 {
+    font-weight: 500;
+}
+
+.dot {
+    content: '';
+    position: absolute;
+    height: 7px;
+    width: 7px;
+    background-color: #FF54D9;
+    border-radius: 50%;
+    left: 75%;
+    top: 18%;
+}
+
+.popup {
+    width: 400px;
+    background: white;
+    border-bottom: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    visibility: hidden;
+    transition: 0.4s, top 0.4s;
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+}
+
+/* Test */
+
+#number::after {
+    content: counter(count);
+    animation: counter 5s linear;
+    color: #FF54D9;
+    border: 5px solid #FF54D9;
+    font-size: 100px;
+    padding: 5px 15px;
+}
+
+@keyframes counter {
+    0% {
+        counter-increment: count 3;
+    }
+
+    33% {
+        counter-increment: count 2;
+    }
+
+    66% {
+        counter-increment: count 1;
+    }
+    100% {
+        counter-increment: count 0;
+    }
+}
+
+/*Drishty*/
+
+.rankName {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+}

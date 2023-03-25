@@ -1,0 +1,224 @@
+html {
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 1550px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .user-description {
+        margin-left: -1rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    html {
+        font-size: 10px;
+    }
+
+    .user-description {
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .hire_button {
+        margin-top: -10rem;
+    }
+
+    .user-description {
+        margin-left: 0;
+    }
+}
+
+body {
+    /*font-family: 'Poppins';*/
+    background-color: #F0F2F9;
+}
+
+.find-header {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.filter-by {
+    font-weight: 400;
+    font-size: 1.5rem;
+
+}
+
+.clear-filter {
+    color: #FF9344;
+    font-size: 0.8rem;
+
+}
+
+.clr-btn-style {
+    all: unset;
+    cursor: pointer;
+    float: right;
+}
+
+.clr-btn-style:hover {
+    color: #FF9344;
+}
+
+.top-search-icon {
+    color: #ff9344;
+    background-color: #1A1A40;
+}
+
+.top-search-icon:hover {
+    color: #ff9344;
+}
+
+.top-search-icon:focus {
+    box-shadow: none;
+}
+
+.top-close-icon {
+    color: #B4B4B4;
+}
+
+.top-close-icon:hover {
+    color: #B4B4B4;
+}
+
+.top-close-icon:focus {
+    box-shadow: none;
+}
+
+.top-search-form {
+    margin-right: -2.5rem;
+}
+
+.top-search-form:focus {
+    border-color: #ff9344;
+    box-shadow: 0 0 0 0.25rem rgb(255 147 68 / 25%);
+}
+
+.user-name {
+    font-weight: 700;
+}
+
+.user-designation {
+    margin-top: -1rem;
+    font-size: 0.875rem;
+}
+
+.user-address {
+    margin-top: -0.5rem;
+    color: #707070;
+    font-size: 0.875rem;
+}
+
+.hire-btn-area {
+    float: right;
+}
+
+.hire-btn {
+    margin-left: 1rem;
+    color: white;
+    background: linear-gradient(98.21deg, #FF9344 0%, #FF54D9 149.94%);
+    border-radius: 0.4rem;
+}
+
+.hire-btn:hover {
+    color: white;
+}
+
+.hire-btn:focus {
+    box-shadow: none;
+}
+
+.job-icon {
+    margin-right: 0.5rem;
+}
+
+.user-talent-description {
+    font-size: 0.85rem;
+    line-height: 1rem;
+    color: #1A1A40;
+}
+
+.user-talent-description-1 {
+    font-size: 0.85rem;
+    color: #1A1A40;
+    line-height: 1.2rem;
+    opacity: 60%;
+}
+
+.collapsible {
+    all: unset;
+}
+
+.filter-content {
+    all: unset;
+    list-style-type: none;
+    padding-top: 0.3rem;
+    cursor: pointer;
+}
+
+.filter-content-list {
+    margin-top: 0.5rem;
+}
+
+.filter-style li {
+    display: inline;
+    list-style-type: none;
+    padding: 0.125rem 0.625rem;
+    border-radius: 0.75rem;
+    background-color: #1A1A40;
+    color: white;
+    margin-right: 0.5rem;
+}
+
+.filter-style {
+    padding: 0;
+    margin: 0.7rem 0 0;
+}
+
+/* talent Hire Profile */
+.card-style {
+    padding: 0;
+    border-width: 0px 1px 0.5px 1px;
+    border-style: solid;
+    border-color: #BEBEBE;
+    min-width: 31%;
+}
+
+.talent-profile-header {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.icon-style {
+    color: #FF9344;
+    margin-right: 0.5rem;
+}
+
+.member_2 {
+    margin-left: -0.5rem;
+}
+
+.fund-header {
+    color: #1A1A40;
+    opacity: 50%;
+}
+
+.fund-mainHeader {
+    float: right;
+}
+
+.user-description {
+    margin-left: -3rem;
+}

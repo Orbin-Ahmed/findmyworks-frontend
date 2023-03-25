@@ -1,0 +1,117 @@
+{% load static %}
+{% load mathfilters %}
+<div class="left-area-box">
+    <p class="landing-main-header">Discover innovative projects and<br>secure funding.<img
+            class="landing-image-position img-fluid" style="margin-left:1rem;top: -2rem;left: -3.8rem;"
+            src="{% static '/image/home/cap 1.svg' %}"></p>
+    <p class="landing-sub-header">
+        Find My Works is the perfect platform for entrepreneurs looking to take their<br>
+        projects to the next level. Discover innovative projects and secure funding<br>
+        through our sponsorship opportunities. Our platform makes it easy to connect<br>
+        with potential sponsors and investors, giving you the resources you need to<br>
+        bring your project to life. Take the first step towards success and join Find My Works today.</p>
+    <!-- Test -->
+    <div class="find-box input-group mb-3">
+        <input type="text" class="form-control" style="max-width: 32%;"
+               placeholder="What is your achievement today...?" id="description">
+    </div>
+    <button class="btn search-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit<span
+            style="margin-left: 0.5rem"><i class="bi bi-arrow-right"></i></span>
+    </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Your Projects</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            {% if project.0.title %}
+                {% for data in project %}
+                    {% if forloop.counter0|mod:3 == 0 %}
+                        <div class="col-md-3 card mb-3" style="min-width: 12.5rem;cursor: pointer;max-width: 15rem;"
+                             onclick="addProjectsActivity('{{ key }}','{{ data.id }}');">
+                            <img src="{{ data.image.0.image }}" class="card-img-top m-0" alt="..."
+                                 style="max-height: 10rem;min-height: 10rem;">
+
+                            <div class="card-body">
+                                <h3 style="font-size: 1rem" class="card-title"><b>{{ data.title }}</b></h3>
+{#                                <p class="card-text">Team members:<img alt="" style="margin-left: 0.5rem;"#}
+{#                                                                       src="{% static '/image/project/member_ 1.svg' %}"><img#}
+{#                                        alt=""#}
+{#                                        class="member_2"#}
+{#                                        src="{% static '/image/project/member_ 2.svg' %}"><img#}
+{#                                        alt="" class="member_2"#}
+{#                                        src="{% static '/image/project/member_ 3.svg' %}"></p>#}
+                            </div>
+                            <P class="fund-section-style">
+                    <span>
+                        <span class="fund-header">Fund: </span>
+                        <b>$<span>{% if data.price == null %}0{% else %}{{ data.price }}{% endif %}</span></b>
+                    </span>
+                            </P>
+                        </div>
+                    {% elif forloop.counter0|mod:3 == 1 %}
+                        <div class="col-md-3 card mb-3" style="min-width: 12.5rem;cursor: pointer;max-width: 15rem;"
+                             onclick="addProjectsActivity('{{ key }}','{{ data.id }}');">
+                            <img src="{{ data.image.0.image }}" class="card-img-top m-0" alt="..."
+                                 style="max-height: 10rem;min-height: 10rem;">
+
+                            <div class="card-body">
+                                <h3 style="font-size: 1rem" class="card-title"><b>{{ data.title }}</b></h3>
+{#                                <p class="card-text">Team members:<img alt="" style="margin-left: 0.5rem;"#}
+{#                                                                       src="{% static '/image/project/member_ 1.svg' %}"><img#}
+{#                                        alt=""#}
+{#                                        class="member_2"#}
+{#                                        src="{% static '/image/project/member_ 2.svg' %}"><img#}
+{#                                        alt="" class="member_2"#}
+{#                                        src="{% static '/image/project/member_ 3.svg' %}"></p>#}
+                            </div>
+                            <P class="fund-section-style">
+                    <span>
+                        <span class="fund-header">Fund: </span>
+                        <b>$<span>{% if data.price == null %}0{% else %}{{ data.price }}{% endif %}</span></b>
+                    </span>
+                            </P>
+                        </div>
+                    {% else %}
+                        <div class="col-md-3 card mb-3" style="min-width: 12.5rem;cursor: pointer;max-width: 15rem;"
+                             onclick="addProjectsActivity('{{ key }}','{{ data.id }}');">
+                            <img src="{{ data.image.0.image }}" class="card-img-top m-0" alt="..."
+                                 style="max-height: 10rem;min-height: 10rem;">
+
+                            <div class="card-body">
+                                <h3 style="font-size: 1rem" class="card-title"><b>{{ data.title }}</b></h3>
+{#                                <p class="card-text">Team members:<img alt="" style="margin-left: 0.5rem;"#}
+{#                                                                       src="{% static '/image/project/member_ 1.svg' %}"><img#}
+{#                                        alt=""#}
+{#                                        class="member_2"#}
+{#                                        src="{% static '/image/project/member_ 2.svg' %}"><img#}
+{#                                        alt="" class="member_2"#}
+{#                                        src="{% static '/image/project/member_ 3.svg' %}"></p>#}
+                            </div>
+                            <P class="fund-section-style">
+                    <span>
+                        <span class="fund-header">Fund: </span>
+                        <b>$<span>{% if data.price == null %}0{% else %}{{ data.price }}{% endif %}</span></b>
+                    </span>
+                            </P>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <P class="text-center">You do not have any project yet</P>
+                <p class="text-center">Add project <a href="add-project/" style="all: unset;cursor: pointer;color: #ff9344;">here</a></p>
+            {% endif %}
+            </div>
+            <div class="modal-footer">
+                {#        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>#}
+                {#        <button type="button" class="btn btn-primary">Save changes</button>#}
+            </div>
+        </div>
+    </div>
+</div>

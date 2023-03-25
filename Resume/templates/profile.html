@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/navBar.css' %}" media="all">
+    <link rel="stylesheet" href="{% static '/css/profile.css' %}" media="all">
+    <link rel="stylesheet" href="{% static '/css/profile_resume.css' %}" media="all">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="{% static '/css/animation.css' %}">
+    <title>Profile</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/image/FMW logo.svg' %}">
+    <style>
+        *::selection {
+            background: #ff9344;
+        }
+
+        {#validation css#}
+
+        .input-control.success input {
+            border-color: #09c372;
+        }
+
+        .input-control.error input {
+            border-color: #ff3860;
+        }
+
+        .input-control .error {
+            color: #ff3860;
+            position: inherit;
+            font-size: 10px;
+            height: 20px;
+            z-index: 1;
+            line-height: .7rem;
+        }
+    </style>
+</head>
+
+<body>
+{% include 'navbar.html' %}
+<div class="row d-flex justify-content-around" style="margin-top: 2rem;">
+    <div class="col-xl-3" style="margin-bottom: 1rem;">
+        <div class="card card-bg">
+            {#Edit button#}
+            <div>
+                <div class="col-md-2 float-end mt-2">
+                    <button id="bio_edit_btn" type="button" style="border: none;background: none"
+                            onclick="edit_toggle();">
+                            <span style="color: #ff9344;">
+                                <i class="bi bi-pencil" style="margin-right: 0.5rem;"></i><span>Edit</span></span>
+                    </button>
+                </div>
+            </div>
+            {#        User Image Box#}
+            <div class="avatar-upload">
+                <div class="avatar-edit">
+                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg"/>
+                    <label for="imageUpload"></label>
+                </div>
+                <div class="card-img-top card-image avatar-preview">
+                    <div id="imagePreview" style="background-image: url(
+                            {% if resume_related_info.image %}{{ resume_related_info.image }}{% else %}{% static 'image/imageBox.svg' %}{% endif %});">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="col text-center" style="color: #868686">
+
+                    <div class="progress" style="margin-bottom: 0.5rem;margin-left: 1rem;">
+                        <div class="progress-bar" role="progressbar" style="width: {{ profile_completion }}%;"></div>
+                    </div>
+                    {{ profile_completion }}% Completed
+                </div>
+                <span style="padding: 0 0.5rem 1.8rem 0.5rem;color: #ff9344;"><i class="bi-info-circle"></i></span>
+            </div>
+            <form method="post" action="/profile-info/">
+                {% csrf_token %}
+                <div class="row d-flex justify-content-between plr">
+                    <hr>
+                    <div class="col-md-8"><span class="card-sec-title">About me</span></div>
+                </div>
+                <div class="card-body input-control" id="profile-area-container">
+                    <textarea id="bio_area_update" rows="5" class="card-text form-control" name="user_bio"
+                              style="text-align: justify;" disabled>{{ resume_basic.bio }}</textarea>
+                    <p class="text-muted" id="profile-count-container" style="display: none"><span id="profile-count">0/1200</span></p>
+                    <div style="width: 100%;padding-top: 5px;font-size: 14px;}" class="error"></div>
+                </div>
+                <button class="btn quiz_btn" id="bio_save_btn" type="submit"
+                        onclick="return bio_validation('{{ key }}','bio_area_update', 10, 100);"
+                        style="float: right;margin: 0 1rem 0.5rem 0" disabled>
+                    <i class="bi bi-sd-card" style="margin-right: 0.5rem;"></i>Update
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="col-xl-8 card card-bg" style="height: fit-content;">
+        <ul class="nav nav-tabs nav-justified list" style="font-size: 1.2rem;" id="myTab">
+
+            <li class="nav-item">
+                <a class="nav-link nav-link-1 active" id="basic_button" onclick="tab_view(this.id);" href="#"><span
+                        class="icon" style="opacity:100%;"><i class="bi bi-person"></i></span>Basic Info</a>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link nav-link-1" id="education_button" onclick="tab_view(this.id);" href="#"><span
+                        class="icon" style="opacity:100%;"><i class="bi bi-book"></i></span>Education</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link nav-link-1" id="skill_button" onclick="tab_view(this.id);" href="#"><span
+                        class="icon" style="opacity:100%;"><i class="bi bi-puzzle"></i></span>Skills</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link nav-link-1" id="project_button" onclick="tab_view(this.id);" href="#"><span
+                        class="icon" style="opacity:100%;"><i
+                        class="bi bi-gear"></i></span>Project</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-1" id="work_button" onclick="tab_view(this.id);" href="#"
+                   tabindex="-1"><span class="icon" style="opacity:100%;"><i
+                        class="bi bi-gear"></i></span>Work History</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link nav-link-1" id="achievements_button" onclick="tab_view(this.id);" href="#"
+                   tabindex="-1"><span class="icon" style="opacity:100%;"><i
+                        class="bi bi-gear"></i></span>Achievements</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link nav-link-1" id="resume_button" onclick="tab_view(this.id);" href="#"><span
+                        class="icon" style="opacity:100%;"><i class="bi bi-file-earmark-ruled"></i></span>Resume</a>
+            </li>
+        </ul>
+        <div class="col-md-12 card child-card-bg">
+            <div class="tab-content profile_tab_fade" id="basic_tab"
+                 style="display: block;">{% include 'profile/basic_tab.html' %}</div>
+            <div class="tab-content profile_tab_fade"
+                 id="education_tab">{% include 'profile/education_tab.html' %}</div>
+            <div class="tab-content profile_tab_fade" id="skill_tab">{% include 'profile/skill_tab.html' %}</div>
+            <div class="tab-content profile_tab_fade" id="project_tab">{% include 'profile/project_tab.html' %}</div>
+            <div class="tab-content profile_tab_fade" id="work_tab">{% include 'profile/work.html' %}</div>
+            <div class="tab-content profile_tab_fade"
+                 id="achievements_tab">{% include 'profile/achievements.html' %}</div>
+            <div class="tab-content profile_tab_fade" id="resume_tab">{% include 'profile/resume_tab.html' %}</div>
+        </div>
+    </div>
+</div>
+{% include 'profile/modal.html' %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script class="jsbin" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="{% static '/js/profile_validation.js' %}"></script>
+<script src="{% static '/js/ajax/education_institutes.js' %}"></script>
+<script>
+    $('.nav li a').on("click", function () {
+        $(".nav li a").removeClass("active");
+        $(this).addClass("active");
+    })
+</script>
+<script>
+    function tab_view(id) {
+        var tab_id = id.replace("_button", '_tab');
+        var content_page = document.querySelectorAll('.tab-content');
+        for (var x = 0; x < content_page.length; x++) {
+            content_page[x].style.display = 'none';
+            var temp = document.getElementById(tab_id);
+            temp.style.display = 'block';
+        }
+    }
+</script>
+<script src="{% static '/js/my_print.js' %}"></script>
+<script src="{% static '/js/profile.js' %}"></script>
+</body>
+</html>

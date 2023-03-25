@@ -1,0 +1,125 @@
+[data-aos="fade-in-p"] {
+    opacity: 0;
+    transition-property: opacity;
+}
+
+[data-aos="fade-in-p"].aos-animate {
+    opacity: 1;
+}
+
+[data-aos="test-anim"] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: auto;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background: linear-gradient(180deg, #FF9344 0%, #FF54D9 141.99%);
+    height: 0;
+    transition-property: height;
+}
+
+
+[data-aos="test-anim"].aos-animate {
+    height: 256px;
+}
+
+
+.profile_tab_fade {
+    opacity: 0;
+    animation: pro_tab_fade 1s ease-in-out forwards;
+}
+
+@keyframes pro_tab_fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Signin-up Animation */
+
+/* Signin Page start Anim */
+.signin_image_animation {
+    overflow: clip;
+    animation-name: slideLeft;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(50%);
+        opacity: 0%;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 100%;
+    }
+}
+
+.signin_card_animation {
+    animation-name: slideUp;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Signin Page start Anim End*/
+
+/* SignUp Page start Anim */
+.signup_image_animation {
+    overflow: clip;
+    animation-name: slideRight;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(-30%);
+        opacity: 0%;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 100%;
+    }
+}
+
+.signup_card_animation {
+    animation-name: slidedown;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes slidedown {
+    from {
+        opacity: 0;
+        transform: translateY(-40%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SignUp Page start Anim End*/
+
+/* Signin-up Animation End*/

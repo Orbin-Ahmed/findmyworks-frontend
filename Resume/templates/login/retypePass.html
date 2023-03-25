@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/login_registration.css' %}" media="all">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>New Pass</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/image/FMW logo.svg' %}">
+</head>
+
+<body>
+<div class="container-fluid"
+     style="background: linear-gradient(90.26deg, #FF9344 0%, #FF54D9 120.06%); min-height: 67.5rem;">
+    <div class="row d-flex justify-content-between">
+        <!-- new Pass -->
+        <div class="offset-md-2 col-md-3 signUp_down_animation"
+             style="min-width: 35rem;padding: 15rem 0 15rem 0;" id="recover_pass_sec3">
+            <div class="card login_card">
+                <div class="card-body text-center">
+                    <span style="color: #ff9244;font-size:3rem"><i class="bi bi-key-fill"></i></span>
+                    <h1 style="font-size: 2rem;"><b>Check your email</b></h1>
+                    <h6 class="card-subtitle text-muted mt-3" style="font-size: 0.8rem;line-height:normal;">We have
+                        sent a password recover instructions to your emai.</h6>
+                </div>
+                <div class="card-body" style="margin-top: -1rem;">
+                    <form method="post">
+                        {% csrf_token %}
+                        <label for="signup_password_1" class="form-label fs-5">Password</label>
+                        <div class="input-group mb-2">
+                            <input name="pass1" type="password" class="form-control" style="margin-right:-40px;z-index: 1;"
+                                   id="signup_password_1" value="" placeholder="*********">
+                            <button class="btn" onclick="" type="button"><i id="togglePassword_1"
+                                                                            style="color: #ff9344;"
+                                                                            class="bi-eye-slash"></i></button>
+                        </div>
+                        <label class="form-label text-muted fs-6">*Must be atleast 8 characters.</label><br>
+
+                        <!-- Sign Up Pass Re-type-->
+                        <label for="signup_password_2" class="form-label fs-5">Confirm password</label>
+                        <div class="input-group mb-2">
+                            <input name="pass2" type="password" class="form-control" style="margin-right:-40px;z-index: 1;"
+                                   id="signup_password_2" value="" placeholder="*********">
+                            <button class="btn" onclick="" type="button"><i id="togglePassword_2"
+                                                                            style="color: #ff9344;"
+                                                                            class="bi-eye-slash"></i></button>
+                        </div>
+                        <label class="form-label text-muted fs-6">*Both password must match.</label>
+                        <button type="submit" class=" btn login_btn">Reset password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orange Image -->
+        <div class="col-md-5">
+            <div class="row">
+                <h1 class="text-center"
+                    style="padding-top:10rem;font-weight: 700;font-size:2.5rem;color:white;font-style:italic;">
+                    Findmyworks</h1>
+                <img style="position: relative;bottom: -10rem;right: -1rem; z-index: 1;"
+                     src="{% static '/image/golla komola.svg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Image -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="offset-md-7 col-md-5" style="position: relative;">
+            <div class="row" id="sign_in_image"><img class="signUp_image_animation"
+                                                     style="position:absolute;bottom: 10rem;right: 0px;z-index: 2;width: 85%;"
+                                                     src="{% static '/image/amico.svg' %}" alt=""></div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="{% static '/js/resetPass.js' %}"></script>
+</body>
+
+</html>

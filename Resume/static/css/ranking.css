@@ -1,0 +1,102 @@
+body {
+    background-color: #F0F2F9;
+}
+
+.table>:not(:last-child)>:last-child>* {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: rgba(190, 190, 190, 0.5);
+    ;
+}
+
+tr:nth-child(even) {
+    background-color: #F2F2F2!important;
+}
+
+.table-serial {
+    text-align: center;
+    padding: 0 !important;
+}
+/* Bonus */
+.table>:not(caption)>*>* {
+    border-bottom-width: 0;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    border: 1px solid #FF9344;
+    background: linear-gradient(180deg, #FF9344 0%, #FF54D9 162.2%);
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+    background: linear-gradient(180deg, #FF9344 0%, #FF54D9 162.2%);
+    box-shadow: inset 0 0 3px #FF9344;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: white;
+    border: none;
+    background: none;
+}
+.table-serial span {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: #1A1A40;
+    border-radius: 0.25rem;
+    background-color: #E0E0E0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+    /* width: 120px;
+    height: 120px;
+
+    background: #E0E0E0;
+    border-radius: 15px; */
+}
+
+.table-body {
+    padding: 1rem !important;
+}
+
+.table>:not(caption)>*>* {
+    vertical-align: baseline;
+}
+
+.ranking-header {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 3rem;
+    text-align: center;
+    color: #1A1A40;
+}
+
+.ranking-sub-header {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    text-align: center;
+    color: rgba(26, 26, 64, 0.75);
+}
+
+.nav-style {
+    background: linear-gradient(180deg, #FF9344 0%, #FF54D9 162.2%);
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.nav-link.active {
+    color: #FF9344;
+}

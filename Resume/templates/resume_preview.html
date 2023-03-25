@@ -1,0 +1,72 @@
+<div class="container-fluid" id="myResume_0" style="display: block;">
+    <div class="row d-flex justify-content-center" style="min-height: 495px;">
+        <div class="col-4">
+            <div class="card resume-card-left h-100">
+                {% load static %}
+                <img id="imageField-1" style="margin-bottom: 1.5rem;" src="{% static '/image/imageBox.svg' %}"
+                     class="card-img-top" alt="Your Image">
+
+                <div class="card-body" style="margin-bottom: -0.5rem;">
+                    <h4 class="card-title name">Your Name</h4>
+                    <p class="text-field-profession profession">Profession</p>
+                    <p class="text-field-header date">Birth date: <span
+                            class="text-field date_of_birth" id="date_0f_birth_preview">01/01/1947</span></p>
+                    <p class="text-field-header">Number: <span>+880</span><span class="text-field phone">(603) 555-0123</span></p>
+                    <p class="text-field-header">Email: <span class="text-field email">user@example.com</span></p>
+                    <p class="text-field-header">Address: <span class="text-field address">23, Uttara, Dhaka,
+                            Bangladesh</span></p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-6 right-column">
+            <div class="card resume-card-right h-100">
+                <div class="card-body h-100">
+                    <p class="card-title-right">About me</p>
+                    <p class="content bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fames hac hendrerit
+                        fames at pharetra. Pharetra ut odio purus fermentum proin mattis dictum vestibulum orci.
+                        Nisl, diam, molestie convallis nunc arcu. Lacus fames in mauris </p>
+                </div>
+                <div class="card-body h-100">
+                    <hr class="horizontal-line">
+                    <h4 class="card-title-right">Education</h4>
+                    <hr class="horizontal-line">
+                    <p class="bold-sub myMargin" style="margin-bottom: 0.5rem;">
+                        <b>
+                            <span id="degree">BBA</span>
+                            <span> : </span>
+                            <span class="major">HRM</span>
+                            <span class="content"> ( </span>
+                            <span class="content study_start_date" id="edu_preview_start_date">Start Date</span>
+                            <span class="content"> - </span>
+                            <span class="content study_end_date" id="st_end_date">End Date</span>
+                            <span class="content"> )</span>
+                        </b>
+                    </p>
+                    <p class="content myMargin">
+                        <span>Result: </span>
+                        <span class="result"></span>
+                    </p>
+                    <p class="content myMargin Institute_name" id="inst_name">Shanto-Mariam University Of Creative
+                        Tech</p>
+                    <p class="content myMargin Institute_Address">Plot: 1, Road: 30, Sector: 11, Uttara, Dhaka-1230</p>
+                    <ul class="list-header curriculam-list" id="curriculam-area">
+                        <!-- Extra Curriculam Goes Here -->
+                    </ul>
+                </div>
+
+                <!-- 2nd Education Goes Here -->
+                <div id="education_sec_2" class="h-100">
+
+                </div>
+                <div class="card-body h-100">
+                    <ul class="list-header curriculam-list" id="curriculam-area1">
+                        <!-- Extra Curriculam Goes Here -->
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

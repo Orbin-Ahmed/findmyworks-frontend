@@ -1,0 +1,40 @@
+{% load static %}
+<div class="left-area-box">
+    <p class="landing-main-header">Uncover exceptional talent for<br> your organization.
+        <img style="margin-left:1rem;" src="{% static '/image/home/build.svg' %}" width="7%" height="auto">
+    </p>
+    <p class="landing-sub-header">
+        Find My Works is the ultimate solution for companies looking to expand<br>
+        their team with the best talent available. Our platform efficiently<br>
+        connects you with top job candidates, saving you time and resources<br>
+        in the hiring process. Whether you are a small startup or a large<br>
+        corporation, Find My Works can help you find the perfect fit for <br>
+        your organization.</p>
+    <div class="find-box input-group mb-3">
+        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="selectedIndex">Talent</button>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item">
+                    <p class="talent-icon" style="display: inline">
+                        <i class="bi bi-person"></i>
+                    </p>
+                    <span style="cursor: pointer;">Talent</span>
+                    <p class="talent-subheader">Hire talented person for your company</p>
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item">
+                    <p class="talent-icon" style="display: inline">
+                        <i class="bi bi-file-earmark-richtext"></i>
+                    </p>
+                    <span style="cursor: pointer;">Project</span>
+                    <p class="talent-subheader">Hire most active person for your company</p>
+                </a>
+            </li>
+        </ul>
+        <input type="text" class="form-control" style="max-width: 26%; cursor: default" id="searchBox">
+    </div>
+    <button class="btn search-btn" type="button" onclick="redirectUrl();"><span class="talent-search-icon"><i
+            class="bi bi-search"></i></span>Find
+    </button>
+</div>

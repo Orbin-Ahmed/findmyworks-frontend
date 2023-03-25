@@ -1,0 +1,22 @@
+<table id="college_table" class="table" style="background-color: #fff;">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">College name</th>
+            <th scope="col">Total students</th>
+            <th scope="col">Total GPA-5</th>
+            <th scope="col">Projects</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in school_rank %}
+        <tr>
+            <th class="table-serial"><span>{{ forloop.counter }}</span></th>
+            <td class="table-body">{{ data.name }}</td>
+            <td>{{ data.total_members }}</td>
+            <td>{{ data.total_gpa }}</td>
+            <td>{{ data.total_projects }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

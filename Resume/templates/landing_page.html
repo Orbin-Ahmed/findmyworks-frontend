@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static '/css/project.css' %}" media="all">
+    <link rel="stylesheet" href="{% static '/css/navBar.css' %}" media="all">
+    <link rel="stylesheet" href="{% static '/css/landing.css' %}" media="all">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <link rel="stylesheet" href="{% static '/css/animation.css' %}">
+
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/image/FMW logo.svg' %}">
+    <style>
+        *::selection {
+            background: #ff9344;
+        }
+    </style>
+</head>
+<body>
+{% include 'navbar.html' %}
+<section>
+    <div class="container-fluid" style="padding: 0;">
+        <div>
+            <div style="position: relative;margin-top: -0.8rem;">
+                <img src="{% static '/image/home/top-left-pencil.svg' %}" width="8%" height="auto"
+                     class="landing-image-position img-fluid" style="top: 0;left: 0;">
+                <img src="{% static '/image/home/top-right-grad.svg' %}" width="8%" height="auto"
+                     class="landing-image-position img-fluid" style="top: -0.6rem;right: 0;">
+                <img src="{% static '/image/home/Goal.svg' %}" width="20%" height="auto"
+                     class="landing-image-position img-fluid" style="top: -1rem;right: 40%;">
+                <img src="{% static '/image/home/Frame 194.svg' %}"
+                     class="landing-image-position img-fluid movement" width="5%" height="auto"
+                     style="top: 3.125rem;right: 15rem;"
+                     data-value="7">
+            </div>
+            <img src="{% static '/image/home/bottom-right-pencil.svg' %}" width="8%" height="auto"
+                 class="landing-image-position img-fluid btm-r">
+            <img src="{% static '/image/home/bottom-left-certificate.svg' %}" width="8%" height="auto"
+                 class="landing-image-position img-fluid btm-l">
+            <img src="{% static '/image/home/Frame 192.svg' %}" width="5%" height="auto"
+                 class="landing-image-position img-fluid movement"
+                 style="bottom: 35%;right: 7rem;" data-value="-5">
+            <img src="{% static '/image/home/Frame 195.svg' %}" width="5%" height="auto"
+                 class="landing-image-position img-fluid movement"
+                 style="bottom: 12%;left: 59%;" data-value="-2">
+            <img src="{% static '/image/home/image-shadow.svg' %}" width="40%" height="auto"
+                 class="landing-image-position img-fluid img-shadow">
+            <img src="{% static '/image/home/Frame 193.svg' %}" width="5%" height="auto"
+                 class="landing-image-position img-fluid movement"
+                 style="top: 23rem;left: 55%;" data-value="4">
+            {#            <div class="animated_text">#}
+            {#                <p class="text">Jobsearch.Talentacquisition.Projectsponsorship.Entrepreneurship.Career.</p>#}
+            {#            </div>#}
+            {#            Animation text#}
+            <div id="circle" class="blur">
+
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+
+                     y="0px" viewBox="0 0 300 300"
+                     xml:space="preserve">
+    <defs>
+        <path id="circlePath" d=" M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
+    </defs>
+                    <circle cx="150" cy="100" r="75" fill="none"/>
+                    <g>
+        <use xlink:href="#circlePath" fill="none"/>
+                        <text fill="#ff9944">
+            <textPath xlink:href="#circlePath">Job Search . Talent Acquisition . Project Sponsorship . Entrepreneurship . Career Development. Talent Acquisition .</textPath>
+        </text>
+    </g>
+</svg>
+            </div>
+            {#            Animation text end#}
+            <img src="{% static '/image/home/girl.png' %}" class="landing-image-position img-fluid bounce img-girl"
+                 width="30%" height="auto">
+        </div>
+        <!-- Login Dependency -->
+        {% if key %}
+            {% include 'landing/withlogin.html' %}
+        {% else %}
+            {% include 'landing/withoutlogin.html' %}
+        {% endif %}
+    </div>
+</section>
+<section id="landing_section_start" style="margin-top: -900px;">
+    {% include 'landing_page_section_1.html' %}
+</section>
+<button type="button" class="btn btn-floating btn-lg" id="btn-back-to-top">
+    <i class="bi bi-chevron-up"></i>
+</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+<script src="{% static '/js/landing.js' %}"></script>
+<script src="{% static '/js/navbar.js' %}"></script>
+<script src="{% static '/js/cookies_formatter.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="{% static '/js/ajax/education_institutes.js' %}"></script>
+<script>
+    let pageName = "Talent"
+    $(document).on('click', '.dropdown-menu li a span', function () {
+        pageName = $(this).html();
+        document.getElementById('selectedIndex').innerHTML = $(this).html();
+    });
+
+    function redirectUrl() {
+        let search = document.getElementById('searchBox').value;
+        let address = "%20";
+        if (search == "") {
+            search = "%20"
+        }
+        if (pageName == "Talent") {
+            location.href = "/find-talent/" + search + '/' + address;
+        } else {
+            location.href = "/find-project/" + search + '/%20/%20/2023-01-01/2024-01-30/%20/';
+        }
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+*::selection {
+    background: #ff9344;
+}
+
+html {
+    font-family: 'Poppins';
+}
+
+.navBarBackground {
+    height: 6rem;
+    background-image: linear-gradient(90deg, #FF9344, #FF54D9);
+    padding: 0 3rem 0 5rem;
+    z-index: 10;
+}
+
+.navbar-fmw-log {
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(8, 41, 71, 0.15);
+    transform: rotate(-36deg);
+    margin-right: 1rem;
+}
+
+.navBarBrand {
+    font-style: italic;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: auto;
+    color: white;
+}
+
+.navBarBrand:hover {
+    color: white;
+}
+
+.nav-list-item {
+    all: unset;
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-list-item-1 {
+    all: unset;
+    color: white;
+    position: relative;
+}
+
+.nav-list-item:hover {
+    color: white;
+}
+
+.nav-list-item::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    background-color: white;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+}
+
+.nav-list-item:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.nav-list-item-1:hover {
+    all: unset;
+    cursor: default;
+    color: white;
+}
+
+.nav-list-item-1:hover span {
+    float: right;
+    /* transform: none!important; */
+}
+
+.nav-icon-pad-right {
+    padding-right: 0.5rem;
+}
+
+.nav-icon-margin {
+    padding-left: 0.5rem;
+}
+
+.transform {
+    transform: none !important;
+}
+
+.navbar-expand-sm .navbar-nav .nav-link {
+    padding-right: 1rem;
+}
+
+.login_btn {
+    font-size: 1rem;
+    font-weight: 500;
+    background: white;
+    color: #FF9344;
+    border: 1px solid;
+    border-color: #FF9344;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+}
+
+.login_btn:hover {
+    background-color: #FF9344;
+    color: white;
+}
+
+
+/*salman css*/
+
+.footer-list {
+    border-bottom: 1px solid rgba(190, 190, 190, 0.5);
+    padding: 0;
+}
+
+.footer-list li {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0px 3rem 1.5rem 0;
+}
+
+.li-item {
+    float: right;
+    padding: 0 0 2rem 4rem !important;
+}
+
+.footer-list-2 li {
+    border: none;
+    font-weight: 600;
+    display: inline-block;
+    list-style-type: none;
+    padding: 0px 2rem 0.5rem 0;
+}
+
+.bottom-bar p {
+    margin: 0;
+}
+
+#certificate {
+    background-image: url("../image/certificate_bg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 1250px;
+    padding: 10%;
+    height: 750px;
+    margin: 2% auto;
+    box-shadow: 0px 0px 50px 0px #00000026;
+
+}

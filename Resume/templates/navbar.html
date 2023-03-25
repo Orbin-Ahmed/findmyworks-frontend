@@ -1,0 +1,53 @@
+{% load static %}
+<section id="my_header_style">
+    <nav class="navbar navbar-expand-sm navBarBackground">
+        <a class="navbar-brand navBarBrand" href="/">
+            <img class="navbar-fmw-log" src="{% static '/image/FMW logo.svg' %}" alt="" width="10%">
+            <span class="hidden">FindMyWorks</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"
+                aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="toggleMobileMenu" style="padding-right: 1rem;">
+            <ul class="navbar-nav ms-auto text-center">
+                <li style="margin-top: 0.6rem;">
+                    <a href="/resume-builder" class="nav-list-item nav-link" style="padding: 0 0 6px 0;"><img
+                            style="margin: 0 0.5rem 0.5rem 0;" src="{% static '/image/File.svg' %}">Resume Builder</a>
+                </li>
+                <li style="margin-top: 0.6rem;padding-left: 1rem; padding-right: 1rem">
+                    <a href="/ranking" class="nav-list-item nav-link" style="padding: 0 0 6px 0;"><img
+                            style="margin: 0 0.5rem 0.5rem 0;" src="{% static '/image/Ranking.svg' %}">Ranking</a>
+                </li>
+
+                {% if not key %}
+                    <li>
+                        <a class="nav-list-item-1 nav-link" href="/signin">
+                            <button type="button"
+                                    class="login_btn">Login
+                            </button>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="dropdown" style="margin-top: 0.6rem;">
+                        <a data-bs-toggle="dropdown" class="nav-list-item-1 nav-link"
+                           style="cursor: pointer">{{ User_details.first_name }}<img
+                                style="margin-left: 0.5rem;border-radius: 50%;"
+                                src="
+                                        {% if User_details.image %}{{ User_details.image }}{% else %}{% static 'image/imageBox.svg' %}{% endif %}"
+                                width="25" height="25">
+                            <span class="transform" style="all:unset;"><i
+                                    class="bi bi-chevron-right nav-icon-margin"></i></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <a class="dropdown-item" href="/profile"
+                               style="font-size: 1rem;font-weight: 400;">Profile</a>
+                            <a class="dropdown-item" href="/logout" style="font-size: 1rem;font-weight: 400;">Logout</a>
+                        </ul>
+
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</section>

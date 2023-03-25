@@ -1,0 +1,125 @@
+{% load mathfilters %}
+<div class="row d-flex justify-content-between pt-3">
+    <p class="talent-profile-header" style="padding-left: 0;"><b>Educational history</b></p>
+    {#    Left Align#}
+    {% for data in talent_info.eduction_institute %}
+    {% if forloop.counter0|mod:3 == 1 %}
+        <div class="card col-md-6 p-3"
+            style="border-top-right-radius: 0;border-bottom-right-radius:0;border-bottom-left-radius:0;">
+            <div class="row d-flex justify-content-between edu_plr">
+                <div class="col-md-8"><span class="card-sec-title"><b>{{ data.concentration }}</b></span></div>
+{#                <div class="col-md-3"><span style="color: #ff9344;float: right;">{{ forloop.counter }}</span></div>#}
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 p-2">
+                        <label class="form-label">Institute name</label>
+                        <input type="text" class="form-control" id="institute_name" value="{{ data.institute.name }}" disabled>
+                    </div>
+                    <div class="col-md-6 p-2">
+                        <label class="form-label">Concentration/Degree</label>
+                        <input type="text" class="form-control" id="concentration"
+                            value="{{ data.concentration }}" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 p-2">
+                        <label class="form-label">Major</label>
+                        <input type="text" class="form-control" id="education_board" value="{{ data.major }}" disabled>
+                    </div>
+                    <div class="col-md-6 p-2">
+                        <label class="form-label">Result</label>
+                        <input type="text" class="form-control" id="result" value="{{ data.result }}" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 p-2">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control" id="Address"
+                            value="{{ data.address }}" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <!-- Full Column -->
+        {% if forloop.counter0|mod:3 == 0 %}
+        <div class="card col-md-12 p-3" style="border-top-left-radius: 0;border-top-right-radius:0;">
+            <div class="row d-flex justify-content-between edu_plr">
+                <div class="col-md-8"><span class="card-sec-title"><b>{{ data.concentration }}</b></span></div>
+{#                <div class="col-md-3"><span style="color: #ff9344;float: right;">{{ forloop.counter }}</span></div>#}
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 p-2">
+                        <label class="form-label">Institute name</label>
+                        <input type="text" class="form-control" id="institute_name" value="{{ data.institute.name }}" disabled>
+                    </div>
+                    <div class="col-md-6 p-2">
+                        <label class="form-label">Concentration/Degree</label>
+                        <input type="text" class="form-control" id="degree" value="{{ data.concentration }}" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 p-2">
+                        <label class="form-label">Major</label>
+                        <input type="text" class="form-control" id="education_board" value="{{ data.major }}" disabled>
+                    </div>
+                    <div class="col-md-6 p-2">
+                        <label class="form-label">Result</label>
+                        <input type="text" class="form-control" id="result" value="{{ data.result }}" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 p-2">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control" id="Address"
+                            value="{{ data.address }}" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% if forloop.counter0|mod:3 == 2 %}
+        <!-- Right Column -->
+        <div class="card col-md-6 p-3"
+            style="border-top-left-radius: 0;border-bottom-left-radius:0;border-bottom-right-radius:0;">
+            <div class="row d-flex justify-content-between edu_plr">
+                <div class="col-md-8"><span class="card-sec-title"><b>{{ data.concentration }}</b></span></div>
+{#                <div class="col-md-3"><span style="color: #ff9344;float: right;">{{ forloop.counter }}</span></div>#}
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 p-2">
+                        <label class="form-label">Institute name</label>
+                        <input type="text" class="form-control" id="institute_name" value="{{ data.institute.name }}" disabled>
+                    </div>
+                    <div class="col-md-6 p-2">
+                        <label class="form-label">Concentration/Degree</label>
+                        <input type="text" class="form-control" id="concentration"
+                            value="{{ data.concentration }}" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 p-2">
+                        <label class="form-label">Major</label>
+                        <input type="text" class="form-control" id="education_board" value="{{ data.major }}" disabled>
+                    </div>
+                    <div class="col-md-6 p-2">
+                        <label class="form-label">Result</label>
+                        <input type="text" class="form-control" id="result" value="{{ data.result }}" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 p-2">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control" id="Address"
+                            value="{{ data.address }}" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    {#End#}
+</div>

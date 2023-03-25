@@ -1,0 +1,81 @@
+{% load static %}
+{% load mathfilters %}
+<div class="row d-flex justify-content-evenly pt-2">
+    <p style="padding: 1rem 1.8rem 0 1.8rem;margin-bottom: 1.5rem;">
+        <span style="font-size: 1rem;"><b>Project showcase</b></span>
+        <a href="/add-project" class="add_project_btn"><i class="bi bi-plus-lg"></i> Add project</a>
+    </p>
+    {% for data in details %}
+        {% if forloop.counter0|mod:3 == 0 %}
+            <div class="col-lg-3 card card-style mb-3" style="min-width: 17.5rem;cursor: pointer;"
+                 onclick='location.href="view/{{ data.id }}";'>
+            <span><button onclick="deleteProjects('{{ key }}', '{{ data.id }}')"
+                                style="border: none;background: none;color:#FF9344;position: absolute;top: 0;right: 0;"><i
+                                        class="bi bi-trash-fill"></i></button></span>
+                <img src="{{ data.image.0.image }}" class="card-img-top m-0" alt="..." style="max-height: 10rem;min-height: 10rem;">
+
+                <div class="card-body">
+                    <h3 style="font-size: 1rem" class="card-title"><b>{{ data.title }}</b></h3>
+{#                    <p class="card-text">Team members:<img alt="" style="margin-left: 0.5rem;"#}
+{#                                                           src="{% static '/image/project/member_ 1.svg' %}"><img alt=""#}
+{#                                                                                                                  class="member_2"#}
+{#                                                                                                                  src="{% static '/image/project/member_ 2.svg' %}"><img#}
+{#                            alt="" class="member_2"#}
+{#                            src="{% static '/image/project/member_ 3.svg' %}"></p>#}
+                </div>
+                <P class="fund-section-style">
+                    <span>
+                        <span class="fund-header">Fund: </span>
+                        <b>$<span>{% if data.price == null %}0{% else %}{{ data.price }}{% endif %}</span></b>
+                    </span>
+                </P>
+            </div>
+        {% elif forloop.counter0|mod:3 == 1 %}
+            <div class="col-lg-3 card card-style mb-3" style="min-width: 17.5rem;cursor: pointer;" onclick='location.href="view/{{ data.id }}";'>
+            <span><button onclick="deleteProjects('{{ key }}', '{{ data.id }}')"
+                                style="border: none;background: none;color: #ff9344;position: absolute;top: 0;right: 0;"><i
+                                        class="bi bi-trash-fill"></i></button></span>
+                <img src="{{ data.image.0.image }}" class="card-img-top m-0" alt="..." style="max-height: 10rem;min-height: 10rem;">
+                <div class="card-body">
+                    <h3 style="font-size: 1rem" class="card-title"><b>{{ data.title }}</b></h3>
+{#                    <p class="card-text">Team members:<img alt="" style="margin-left: 0.5rem;"#}
+{#                                                           src="{% static '/image/project/member_ 4.svg' %}"><img alt=""#}
+{#                                                                                                                  class="member_2"#}
+{#                                                                                                                  src="{% static '/image/project/member_ 5.svg' %}"><img#}
+{#                            alt="" class="member_2"#}
+{#                            src="{% static '/image/project/member_ 6.svg' %}"></p>#}
+                </div>
+
+                <P class="fund-section-style">
+                    <span>
+                        <span class="fund-header">Fund: </span>
+                        <b>$<span>{% if data.price == null %}0{% else %}{{ data.price }}{% endif %}</span></b>
+                    </span>
+                </P>
+            </div>
+        {% else %}
+            <div class="col-lg-3 card card-style mb-3" style="min-width: 17.5rem;cursor: pointer;" onclick='location.href="view/{{ data.id }}";'>
+            <span><button onclick="deleteProjects('{{ key }}', '{{ data.id }}')"
+                                style="border: none;background: none;color: #ff9344;position: absolute;top: 0;right: 0;"><i
+                                        class="bi bi-trash-fill"></i></button></span>
+                <img src="{{ data.image.0.image }}" class="card-img-top m-0" alt="..." style="max-height: 10rem;min-height: 10rem;">
+                <div class="card-body">
+                    <h3 style="font-size: 1rem" class="card-title"><b>{{ data.title }}</b></h3>
+{#                    <p class="card-text">Team members:<img alt="" style="margin-left: 0.5rem;"#}
+{#                                                           src="{% static '/image/project/member_ 7.svg' %}"><img#}
+{#                            class="member_2" alt=""#}
+{#                            src="{% static '/image/project/member_ 8.svg' %}"><img class="member_2" alt=""#}
+{#                                                                                   src="{% static '/image/project/member_ 9.svg' %}">#}
+{#                    </p>#}
+                </div>
+                <P class="fund-section-style">
+                    <span>
+                        <span class="fund-header">Fund: </span>
+                        <b>$<span>{% if data.price == null %}0{% else %}{{ data.price }}{% endif %}</span></b>
+                </span>
+
+                </P>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

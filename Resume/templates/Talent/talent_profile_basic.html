@@ -1,0 +1,82 @@
+{% load static %}
+<div class="row card p-3">
+    <!-- Row 1 -->
+    <div class="row d-flex justify-content-around align-items-center">
+        <div class="col-md-2 text-center"><img style="border-radius: 50%" src="{% if talent_info.user_image %}{{ talent_info.user_image }}{% else %}{% static 'image/imageBox.svg' %}{% endif %}" width="130rem"
+                                               height="130rem" alt=""></div>
+        <div class="col-md-7">
+            <p class="user-name">{{ talent_info.first_name }} {{ talent_info.last_name }}</p>
+            <p><span class="icon-style bi bi-briefcase"></span>{{ talent_info.profession }}</p>
+            <p><span class="icon-style bi bi-calendar2-week"></span><span
+                    class="text-muted">Birth date: </span>{{ talent_info.date_of_birth }}</p>
+            <p><span class="icon-style bi bi-envelope"></span><span
+                    class="text-muted">Email: </span>{{ hidden_email_concat }}</p>
+            <p><span class="icon-style bi bi-telephone"></span><span
+                    class="text-muted">Phone: </span><span>+880</span>{{ hidden_phone }}</p>
+            <p><span class="icon-style bi bi-pin-map"></span><span
+                    class="text-muted">Address: </span>{{ talent_info.address }}</p>
+        </div>
+        <div class="col-md-3">
+            <div class="hire-btn-area">
+                <img id="heart-btn" src="{% static '/image/heart.svg' %}">
+                <a>
+                    <button class="btn hire-btn" type="button" data-bs-toggle="modal"
+                            data-bs-target="#emailModal"><span class="job-icon"><i
+                            class="bi bi-briefcase"></i></span>Hire
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    {#Modal#}
+    <form method="post">
+        {% csrf_token %}
+        <div class="modal fade" id="emailModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Recruitment email</h5>
+                        <button type="button" class="btn-close top-search-form" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {#Mail Body#}
+                        <div class="mb-3">
+                            <label for="recipientEmail" class="form-label">Recipient Email address</label>
+                            <input type="email" name="recipientEmail" class="form-control top-search-form" id="recipientEmail" value="{{ hidden_email_concat }}" disabled>
+                        </div>
+                            <input type="email"name="recipientEmail" class="form-control top-search-form" value="{{ talent_info.email }}" hidden>
+                        <div class="mb-3">
+                            <label for="senderEmail" class="form-label">Your Email address</label>
+                            <input name="senderEmail" type="email" class="form-control top-search-form" id="senderEmail"
+                                   placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="senderSubject" class="form-label">Subject</label>
+                            <input name="senderSubject" type="text" class="form-control top-search-form" id="senderSubject"
+                                   placeholder="name@example.com" value="Job Opportunity at [Company Name] - [Job Title]">
+                        </div>
+                        <div class="mb-3">
+                            <label for="senderEmailBody" class="form-label">Email Body</label>
+                            <textarea name="senderEmailBody" class="form-control top-search-form" id="senderEmailBody"
+                                      rows="7">Hi {{ talent_info.first_name }} {{ talent_info.last_name }}, It is my pleasure to offer you the position of [Job Title] at [Company Name]. Our team was extremely impress by your profile and we are happy to offer you to join our team. I would love to learn more about you. we can communicate further through email.</textarea>
+                        </div>
+                        {#Mail Body#}
+                    </div>
+                    <div class="modal-footer">
+                        {#                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>#}
+                        <button type="submit" class="btn hire-btn" >Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    {#modal#}
+    <hr>
+    <!-- Row 2 -->
+    <p class="talent-profile-header">Students Bio</p>
+    <div class="row">
+        <p class="user-talent-description-1">{{ talent_info.bio }}</p>
+    </div>
+</div>
